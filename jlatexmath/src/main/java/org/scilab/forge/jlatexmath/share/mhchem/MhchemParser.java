@@ -383,6 +383,14 @@ public class MhchemParser extends TeXParser {
 				charMapping.replaceUnsafe(c, this);
 				break;
 			case '-':
+
+				if (pos+1<parseString.length()) {
+					if (parseString.charAt(pos+1) == '>' || parseString.charAt(pos+1) == '<') {
+						handleSpace();
+					}
+					break;
+				}
+
 				++pos;
 				addToConsumer(SymbolAtom.get("textminus"));
 				break;
