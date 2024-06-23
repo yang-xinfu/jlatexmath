@@ -70,15 +70,15 @@ public class Example1 {
 //        latex += "\\mbox{прывітаньне Свет}&\\mbox{привіт світ}\\\\";
 //        latex += "\\end{array}";
 
-        String latex = "\\ce{B ->[aaaa \\phi][cccc] A3 v}";
+        String latex = "\\ce{A ->[上a][下b] B}";
 
         try {
-            Convert.toSVG(latex, "Example1.svg", true);
+            Convert.toSVG(latex, "Example1.svg", false);
             Convert.toSVG(latex, "Example1_shaped.svg", true);
-            Convert.SVGTo("Example1.svg", "Example1.pdf", Convert.PDF);
-            Convert.SVGTo("Example1_shaped.svg", "Example1_shaped.pdf", Convert.PDF);
-            Convert.SVGTo("Example1.svg", "Example1.ps", Convert.PS);
-            Convert.SVGTo("Example1.svg", "Example1.eps", Convert.EPS);
+//            Convert.SVGTo("Example1.svg", "Example1.pdf", Convert.PDF);
+//            Convert.SVGTo("Example1_shaped.svg", "Example1_shaped.pdf", Convert.PDF);
+//            Convert.SVGTo("Example1.svg", "Example1.ps", Convert.PS);
+//            Convert.SVGTo("Example1.svg", "Example1.eps", Convert.EPS);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

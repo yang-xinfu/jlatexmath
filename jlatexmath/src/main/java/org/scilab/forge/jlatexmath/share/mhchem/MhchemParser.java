@@ -317,6 +317,7 @@ public class MhchemParser extends TeXParser {
 				break;
 			case ' ':
 				++pos;
+				// 有空格，开始考虑把后面的字符当成一个整体处理
 				handleSpace();
 				break;
 			case '!':
@@ -387,8 +388,8 @@ public class MhchemParser extends TeXParser {
 				if (pos+1<parseString.length()) {
 					if (parseString.charAt(pos+1) == '>' || parseString.charAt(pos+1) == '<') {
 						handleSpace();
+						break;
 					}
-					break;
 				}
 
 				++pos;

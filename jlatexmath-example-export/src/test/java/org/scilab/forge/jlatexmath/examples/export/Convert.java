@@ -2,12 +2,7 @@ package org.scilab.forge.jlatexmath.examples.export;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.Writer;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 import javax.swing.JLabel;
@@ -15,12 +10,14 @@ import javax.swing.JLabel;
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGeneratorContext;
 import org.apache.batik.svggen.SVGGraphics2D;
+import org.apache.batik.svggen.SVGGraphics2DIOException;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.fop.render.ps.EPSTranscoder;
 import org.apache.fop.render.ps.PSTranscoder;
 import org.apache.fop.svg.AbstractFOPTranscoder;
 import org.apache.fop.svg.PDFTranscoder;
+import org.junit.Test;
 import org.scilab.forge.jlatexmath.desktop.FactoryProviderDesktop;
 import org.scilab.forge.jlatexmath.desktop.graphics.ColorD;
 import org.scilab.forge.jlatexmath.desktop.graphics.SVGDD;
@@ -38,6 +35,36 @@ public class Convert {
     public static final int PS = 1;
     public static final int EPS = 2;
 
+    @Test
+    public void testHanZi() throws FileNotFoundException, SVGGraphics2DIOException {
+
+        DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
+        String svgNS = "http://www.w3.org/2000/svg";
+        Document document = domImpl.createDocument(svgNS, "svg", null);
+        SVGGeneratorContext ctx = SVGGeneratorContext.createDefault(document);
+
+        SVGGraphics2D g2 = new SVGGraphics2D(ctx, false);
+
+        g2.drawString("上",10,10);
+//        g2.drawString("a",0,10);
+
+//        g2.stream("testHanZi.svg",true);
+
+        // 创建一个输出文件
+        try (FileOutputStream fos = new FileOutputStream("testHanZi.svg");
+             OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8); // 指定UTF-8编码
+             BufferedWriter bw = new BufferedWriter(osw)) {
+
+            // 写入 SVG 图像到文件
+            g2.stream(bw);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        g2.dispose();
+
+    }
 
     public static void toSVG(String latex, String file, boolean fontAsShapes) throws IOException {
 
@@ -49,6 +76,7 @@ public class Convert {
         SVGGeneratorContext ctx = SVGGeneratorContext.createDefault(document);
 
         SVGGraphics2D g2 = new SVGGraphics2D(ctx, fontAsShapes);
+//        g2.drawString("上",1,1);
 
         TeXFormula formula = new TeXFormula(latex);
         TeXIcon icon = formula.createTeXIcon(TeXConstants.STYLE_DISPLAY, 20);
@@ -70,11 +98,16 @@ public class Convert {
         icon.paintIcon(hasForegroundColor, svgdd, 0, 0);
 
         boolean useCSS = true;
-        FileOutputStream svgs = new FileOutputStream(file);
-        Writer out = new OutputStreamWriter(svgs, StandardCharsets.UTF_8);
-        g2.stream(out, useCSS);
-        svgs.flush();
-        svgs.close();
+
+        FileOutputStream fos = new FileOutputStream(file);
+        OutputStreamWriter osw = new OutputStreamWriter(fos, StandardCharsets.UTF_8); // 指定UTF-8编码
+        BufferedWriter bw = new BufferedWriter(osw);
+
+//        FileOutputStream svgs = new FileOutputStream(file);
+//        Writer out = new OutputStreamWriter(svgs, StandardCharsets.UTF_8);
+        g2.stream(bw, useCSS);
+        fos.flush();
+        fos.close();
     }
 
 
