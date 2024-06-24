@@ -45,168 +45,168 @@
 
 package org.scilab.forge.jlatexmath.share.commands;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.scilab.forge.jlatexmath.share.Colors;
 import org.scilab.forge.jlatexmath.share.TeXParser;
 import org.scilab.forge.jlatexmath.share.exception.ParseException;
 import org.scilab.forge.jlatexmath.share.platform.FactoryProvider;
 import org.scilab.forge.jlatexmath.share.platform.graphics.Color;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class CommandDefinecolor extends Command {
 
-	private static abstract class Converter {
-		final double[] doubles = new double[4];
-		final int[] ints = new int[4];
+    private static abstract class Converter {
+        final double[] doubles = new double[4];
+        final int[] ints = new int[4];
 
-		abstract Color to(TeXParser tp);
+        abstract Color to(TeXParser tp);
 
-		void clampf(final int l) {
-			for (int i = 0; i < l; ++i) {
-				doubles[i] = Colors.clamp(doubles[i]);
-			}
-		}
+        void clampf(final int l) {
+            for (int i = 0; i < l; ++i) {
+                doubles[i] = Colors.clamp(doubles[i]);
+            }
+        }
 
-		void clampi(final int l) {
-			for (int i = 0; i < l; ++i) {
-				ints[i] = Colors.clamp(ints[i]);
-			}
-		}
-	}
+        void clampi(final int l) {
+            for (int i = 0; i < l; ++i) {
+                ints[i] = Colors.clamp(ints[i]);
+            }
+        }
+    }
 
-	private static Map<String, Converter> converters = new HashMap<String, Converter>(
-			11) {
-		{
-			put("gray", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					final double gray = Colors.clamp(tp.getArgAsDecimal());
-					return FactoryProvider.getInstance().getGraphicsFactory()
-							.createColor(gray, gray, gray);
-				}
-			});
-			put("wave", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					final double waveLen = tp.getArgAsDecimal();
-					return Colors.convWave(waveLen);
-				}
-			});
-			put("rgb", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsDecimals(doubles, 3);
-					clampf(3);
-					return FactoryProvider.getInstance().getGraphicsFactory()
-							.createColor(doubles[0], doubles[1], doubles[2]);
-				}
-			});
-			put("RGB", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsPositiveIntegers(ints, 3);
-					clampi(3);
-					return FactoryProvider.getInstance().getGraphicsFactory()
-							.createColor(ints[0], ints[1], ints[2]);
-				}
-			});
-			put("rgba", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsDecimals(doubles, 4);
-					clampf(4);
-					return FactoryProvider.getInstance().getGraphicsFactory()
-							.createColor(doubles[0], doubles[1], doubles[2],
-									doubles[3]);
-				}
-			});
-			put("RGBA", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsPositiveIntegers(ints, 4);
-					clampi(4);
-					return FactoryProvider.getInstance().getGraphicsFactory()
-							.createColor(ints[0], ints[1], ints[2], ints[3]);
-				}
-			});
-			put("cmyk", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsDecimals(doubles, 4);
-					clampf(4);
-					return Colors.conv(doubles[0], doubles[1], doubles[2],
-							doubles[3]);
-				}
-			});
-			put("hsl", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsDecimals(doubles, 3);
-					doubles[1] = Colors.clamp(doubles[1]);
-					doubles[2] = Colors.clamp(doubles[2]);
-					return Colors.convHSL(doubles[0], doubles[1], doubles[2]);
-				}
-			});
-			put("hsla", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsDecimals(doubles, 3);
-					doubles[1] = Colors.clamp(doubles[1]);
-					doubles[2] = Colors.clamp(doubles[2]);
-					doubles[3] = Colors.clamp(doubles[3]);
-					return Colors.convHSL(doubles[0], doubles[1], doubles[2],
-							doubles[3]);
-				}
-			});
-			put("hsb", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					tp.getArgAsDecimals(doubles, 3);
-					doubles[1] = Colors.clamp(doubles[1]);
-					doubles[2] = Colors.clamp(doubles[2]);
-					return Colors.convHSB(doubles[0], doubles[1], doubles[2]);
-				}
-			});
-			put("HTML", new Converter() {
-				@Override
-				public Color to(TeXParser tp) {
-					final int c = tp.getArgAsHexNumber(6);
-					return FactoryProvider.getInstance().getGraphicsFactory()
-							.createColor(c);
-				}
-			});
-		}
-	};
+    private static Map<String, Converter> converters = new HashMap<String, Converter>(
+            11) {
+        {
+            put("gray", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    final double gray = Colors.clamp(tp.getArgAsDecimal());
+                    return FactoryProvider.getInstance().getGraphicsFactory()
+                            .createColor(gray, gray, gray);
+                }
+            });
+            put("wave", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    final double waveLen = tp.getArgAsDecimal();
+                    return Colors.convWave(waveLen);
+                }
+            });
+            put("rgb", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsDecimals(doubles, 3);
+                    clampf(3);
+                    return FactoryProvider.getInstance().getGraphicsFactory()
+                            .createColor(doubles[0], doubles[1], doubles[2]);
+                }
+            });
+            put("RGB", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsPositiveIntegers(ints, 3);
+                    clampi(3);
+                    return FactoryProvider.getInstance().getGraphicsFactory()
+                            .createColor(ints[0], ints[1], ints[2]);
+                }
+            });
+            put("rgba", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsDecimals(doubles, 4);
+                    clampf(4);
+                    return FactoryProvider.getInstance().getGraphicsFactory()
+                            .createColor(doubles[0], doubles[1], doubles[2],
+                                    doubles[3]);
+                }
+            });
+            put("RGBA", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsPositiveIntegers(ints, 4);
+                    clampi(4);
+                    return FactoryProvider.getInstance().getGraphicsFactory()
+                            .createColor(ints[0], ints[1], ints[2], ints[3]);
+                }
+            });
+            put("cmyk", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsDecimals(doubles, 4);
+                    clampf(4);
+                    return Colors.conv(doubles[0], doubles[1], doubles[2],
+                            doubles[3]);
+                }
+            });
+            put("hsl", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsDecimals(doubles, 3);
+                    doubles[1] = Colors.clamp(doubles[1]);
+                    doubles[2] = Colors.clamp(doubles[2]);
+                    return Colors.convHSL(doubles[0], doubles[1], doubles[2]);
+                }
+            });
+            put("hsla", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsDecimals(doubles, 3);
+                    doubles[1] = Colors.clamp(doubles[1]);
+                    doubles[2] = Colors.clamp(doubles[2]);
+                    doubles[3] = Colors.clamp(doubles[3]);
+                    return Colors.convHSL(doubles[0], doubles[1], doubles[2],
+                            doubles[3]);
+                }
+            });
+            put("hsb", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    tp.getArgAsDecimals(doubles, 3);
+                    doubles[1] = Colors.clamp(doubles[1]);
+                    doubles[2] = Colors.clamp(doubles[2]);
+                    return Colors.convHSB(doubles[0], doubles[1], doubles[2]);
+                }
+            });
+            put("HTML", new Converter() {
+                @Override
+                public Color to(TeXParser tp) {
+                    final int c = tp.getArgAsHexNumber(6);
+                    return FactoryProvider.getInstance().getGraphicsFactory()
+                            .createColor(c);
+                }
+            });
+        }
+    };
 
-	public static Color getColor(TeXParser tp) {
-		final String model = tp.getOptionAsString().trim();
-		if (model.isEmpty()) {
-			return tp.getArgAsColor();
-		}
-		final Converter conv = converters.get(model);
-		if (conv != null) {
-			return conv.to(tp);
-		}
-		throw new ParseException(tp, "Invalid color model: " + model);
-	}
+    public static Color getColor(TeXParser tp) {
+        final String model = tp.getOptionAsString().trim();
+        if (model.isEmpty()) {
+            return tp.getArgAsColor();
+        }
+        final Converter conv = converters.get(model);
+        if (conv != null) {
+            return conv.to(tp);
+        }
+        throw new ParseException(tp, "Invalid color model: " + model);
+    }
 
-	@Override
-	public boolean init(TeXParser tp) {
-		final String name = tp.getArgAsString().trim();
-		if (!name.isEmpty()) {
-			final String model = tp.getArgAsString().trim();
-			final Converter conv = converters.get(model);
-			if (conv != null) {
-				final Color color = conv.to(tp);
-				Colors.add(name, color);
-			} else {
-				throw new ParseException(tp, "Invalid color model: " + model);
-			}
-		} else {
-			throw new ParseException(tp, "Color name must not be empty");
-		}
+    @Override
+    public boolean init(TeXParser tp) {
+        final String name = tp.getArgAsString().trim();
+        if (!name.isEmpty()) {
+            final String model = tp.getArgAsString().trim();
+            final Converter conv = converters.get(model);
+            if (conv != null) {
+                final Color color = conv.to(tp);
+                Colors.add(name, color);
+            } else {
+                throw new ParseException(tp, "Invalid color model: " + model);
+            }
+        } else {
+            throw new ParseException(tp, "Color name must not be empty");
+        }
 
-		return false;
-	}
+        return false;
+    }
 }

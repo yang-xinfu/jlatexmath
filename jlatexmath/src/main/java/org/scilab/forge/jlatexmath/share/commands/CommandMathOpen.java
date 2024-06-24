@@ -6,8 +6,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 import org.scilab.forge.jlatexmath.share.TypedAtom;
 
 public class CommandMathOpen extends Command1A {
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new TypedAtom(TeXConstants.TYPE_OPENING, a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new TypedAtom(TeXConstants.TYPE_OPENING, a);
+    }
 }

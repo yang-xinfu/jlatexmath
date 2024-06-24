@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
 <tests name="setlength">
-  <test>
-    <id name="1"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
                \begin{tabular}{l}
                \fcolorbox{black}{#e6e6e6}{\text{\backslash{}fboxsep=3pt (default)}} \cr
                \setlength\fboxsep{4pt}\fcolorbox{black}{#e6e6e6}{\text{\backslash{}fboxsep=4pt}} \cr
@@ -14,8 +14,8 @@
                \setlength\fboxsep{2.5em}\fcolorbox{black}{#e6e6e6}{\text{\backslash{}fboxsep=2.5em}} \cr
                \setlength\fboxsep{3pt}\fcolorbox{black}{#e6e6e6}{\text{\backslash{}fboxsep=3pt}}
                \end{tabular}
-      ]]>      
-    </code>
-    <expected success="true"/>
-  </test>
+      ]]>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

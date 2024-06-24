@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <tests name="geogebra">
-<test>
-<id name="1"/>
-<code>
-<![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
 \scalebox{3}{\begin{tabular}{|l|}
 \hline
 {\begin{array}{llllll}\alpha&\;\backslash\mbox{alpha}&\xi&\;\backslash\mbox{xi}&\Gamma&\;\backslash\mbox{Gamma} \\ \beta&\;\backslash\mbox{beta}&\pi&\;\backslash\mbox{pi}&\Delta&\;\backslash\mbox{Delta} \\ \gamma&\;\backslash\mbox{gamma}&\varpi&\;\backslash\mbox{varpi}&\Theta&\;\backslash\mbox{Theta} \\ \delta&\;\backslash\mbox{delta}&\rho&\;\backslash\mbox{rho}&\Lambda&\;\backslash\mbox{Lambda} \\ \epsilon&\;\backslash\mbox{epsilon}&\varrho&\;\backslash\mbox{varrho}&\Xi&\;\backslash\mbox{Xi} \\ \varepsilon&\;\backslash\mbox{varepsilon}&\sigma&\;\backslash\mbox{sigma}&\Pi&\;\backslash\mbox{Pi} \\ \zeta&\;\backslash\mbox{zeta}&\varsigma&\;\backslash\mbox{varsigma}&\Sigma&\;\backslash\mbox{Sigma} \\ \eta&\;\backslash\mbox{eta}&\tau&\;\backslash\mbox{tau}&\Upsilon&\;\backslash\mbox{Upsilon} \\ \theta&\;\backslash\mbox{theta}&\upsilon&\;\backslash\mbox{upsilon}&\Phi&\;\backslash\mbox{Phi} \\ \vartheta&\;\backslash\mbox{vartheta}&\phi&\;\backslash\mbox{phi}&\Psi&\;\backslash\mbox{Psi} \\ \gamma&\;\backslash\mbox{gamma}&\varphi&\;\backslash\mbox{varphi}&\Omega&\;\backslash\mbox{Omega} \\ \kappa&\;\backslash\mbox{kappa}&\chi&\;\backslash\mbox{chi}&\;&\; \\ \lambda&\;\backslash\mbox{lambda}&\psi&\;\backslash\mbox{psi}&\;&\; \\ \mu&\;\backslash\mbox{mu}&\omega&\;\backslash\mbox{omega}&\;&\; \\ \nu&\;\backslash\mbox{nu}&\;&\;&\;&\; \\ \end{array}}\cr
@@ -611,7 +611,7 @@
 \end{tabular}
 }
 ]]>
-</code>
-<expected success="true"/>
-</test>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

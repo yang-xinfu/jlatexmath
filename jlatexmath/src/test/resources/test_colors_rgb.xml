@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <tests name="colors_rgb">
-<test>
-<id name="1"/>
-<code>
-<![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \cellcolor{rgb(0, 0, 0)}\nbsp&\cellcolor{rgb(0, 0, 8)}\nbsp&\cellcolor{rgb(0, 0, 16)}\nbsp&\cellcolor{rgb(0, 0, 24)}\nbsp&\cellcolor{rgb(0, 0, 32)}\nbsp&\cellcolor{rgb(0, 0, 40)}\nbsp&\cellcolor{rgb(0, 0, 48)}\nbsp&\cellcolor{rgb(0, 0, 56)}\nbsp&\cellcolor{rgb(0, 0, 64)}\nbsp&\cellcolor{rgb(0, 0, 72)}\nbsp&\cellcolor{rgb(0, 0, 80)}\nbsp&\cellcolor{rgb(0, 0, 88)}\nbsp&\cellcolor{rgb(0, 0, 96)}\nbsp&\cellcolor{rgb(0, 0, 104)}\nbsp&\cellcolor{rgb(0, 0, 112)}\nbsp&\cellcolor{rgb(0, 0, 120)}\nbsp&\cellcolor{rgb(0, 0, 128)}\nbsp&\cellcolor{rgb(0, 0, 136)}\nbsp&\cellcolor{rgb(0, 0, 144)}\nbsp&\cellcolor{rgb(0, 0, 152)}\nbsp&\cellcolor{rgb(0, 0, 160)}\nbsp&\cellcolor{rgb(0, 0, 168)}\nbsp&\cellcolor{rgb(0, 0, 176)}\nbsp&\cellcolor{rgb(0, 0, 184)}\nbsp&\cellcolor{rgb(0, 0, 192)}\nbsp&\cellcolor{rgb(0, 0, 200)}\nbsp&\cellcolor{rgb(0, 0, 208)}\nbsp&\cellcolor{rgb(0, 0, 216)}\nbsp&\cellcolor{rgb(0, 0, 224)}\nbsp&\cellcolor{rgb(0, 0, 232)}\nbsp&\cellcolor{rgb(0, 0, 240)}\nbsp&\cellcolor{rgb(0, 0, 248)}\nbsp&\cellcolor{rgb(0, 8, 0)}\nbsp&\cellcolor{rgb(0, 8, 8)}\nbsp&\cellcolor{rgb(0, 8, 16)}\nbsp&\cellcolor{rgb(0, 8, 24)}\nbsp&\cellcolor{rgb(0, 8, 32)}\nbsp&\cellcolor{rgb(0, 8, 40)}\nbsp&\cellcolor{rgb(0, 8, 48)}\nbsp&\cellcolor{rgb(0, 8, 56)}\nbsp&\cellcolor{rgb(0, 8, 64)}\nbsp&\cellcolor{rgb(0, 8, 72)}\nbsp&\cellcolor{rgb(0, 8, 80)}\nbsp&\cellcolor{rgb(0, 8, 88)}\nbsp&\cellcolor{rgb(0, 8, 96)}\nbsp&\cellcolor{rgb(0, 8, 104)}\nbsp&\cellcolor{rgb(0, 8, 112)}\nbsp&\cellcolor{rgb(0, 8, 120)}\nbsp&\cellcolor{rgb(0, 8, 128)}\nbsp&\cellcolor{rgb(0, 8, 136)}\nbsp&\cellcolor{rgb(0, 8, 144)}\nbsp&\cellcolor{rgb(0, 8, 152)}\nbsp&\cellcolor{rgb(0, 8, 160)}\nbsp&\cellcolor{rgb(0, 8, 168)}\nbsp&\cellcolor{rgb(0, 8, 176)}\nbsp&\cellcolor{rgb(0, 8, 184)}\nbsp&\cellcolor{rgb(0, 8, 192)}\nbsp&\cellcolor{rgb(0, 8, 200)}\nbsp&\cellcolor{rgb(0, 8, 208)}\nbsp&\cellcolor{rgb(0, 8, 216)}\nbsp&\cellcolor{rgb(0, 8, 224)}\nbsp&\cellcolor{rgb(0, 8, 232)}\nbsp&\cellcolor{rgb(0, 8, 240)}\nbsp&\cellcolor{rgb(0, 8, 248)}\nbsp&\cellcolor{rgb(0, 16, 0)}\nbsp&\cellcolor{rgb(0, 16, 8)}\nbsp&\cellcolor{rgb(0, 16, 16)}\nbsp&\cellcolor{rgb(0, 16, 24)}\nbsp&\cellcolor{rgb(0, 16, 32)}\nbsp&\cellcolor{rgb(0, 16, 40)}\nbsp&\cellcolor{rgb(0, 16, 48)}\nbsp&\cellcolor{rgb(0, 16, 56)}\nbsp&\cellcolor{rgb(0, 16, 64)}\nbsp&\cellcolor{rgb(0, 16, 72)}\nbsp&\cellcolor{rgb(0, 16, 80)}\nbsp&\cellcolor{rgb(0, 16, 88)}\nbsp&\cellcolor{rgb(0, 16, 96)}\nbsp&\cellcolor{rgb(0, 16, 104)}\nbsp&\cellcolor{rgb(0, 16, 112)}\nbsp&\cellcolor{rgb(0, 16, 120)}\nbsp&\cellcolor{rgb(0, 16, 128)}\nbsp&\cellcolor{rgb(0, 16, 136)}\nbsp&\cellcolor{rgb(0, 16, 144)}\nbsp&\cellcolor{rgb(0, 16, 152)}\nbsp&\cellcolor{rgb(0, 16, 160)}\nbsp&\cellcolor{rgb(0, 16, 168)}\nbsp&\cellcolor{rgb(0, 16, 176)}\nbsp&\cellcolor{rgb(0, 16, 184)}\nbsp&\cellcolor{rgb(0, 16, 192)}\nbsp&\cellcolor{rgb(0, 16, 200)}\nbsp&\cellcolor{rgb(0, 16, 208)}\nbsp&\cellcolor{rgb(0, 16, 216)}\nbsp&\cellcolor{rgb(0, 16, 224)}\nbsp&\cellcolor{rgb(0, 16, 232)}\nbsp&\cellcolor{rgb(0, 16, 240)}\nbsp&\cellcolor{rgb(0, 16, 248)}\nbsp&\cellcolor{rgb(0, 24, 0)}\nbsp&\cellcolor{rgb(0, 24, 8)}\nbsp&\cellcolor{rgb(0, 24, 16)}\nbsp&\cellcolor{rgb(0, 24, 24)}\nbsp&\cellcolor{rgb(0, 24, 32)}\nbsp&\cellcolor{rgb(0, 24, 40)}\nbsp&\cellcolor{rgb(0, 24, 48)}\nbsp&\cellcolor{rgb(0, 24, 56)}\nbsp&\cellcolor{rgb(0, 24, 64)}\nbsp&\cellcolor{rgb(0, 24, 72)}\nbsp&\cellcolor{rgb(0, 24, 80)}\nbsp&\cellcolor{rgb(0, 24, 88)}\nbsp&\cellcolor{rgb(0, 24, 96)}\nbsp&\cellcolor{rgb(0, 24, 104)}\nbsp&\cellcolor{rgb(0, 24, 112)}\nbsp&\cellcolor{rgb(0, 24, 120)}\nbsp&\cellcolor{rgb(0, 24, 128)}\nbsp&\cellcolor{rgb(0, 24, 136)}\nbsp&\cellcolor{rgb(0, 24, 144)}\nbsp&\cellcolor{rgb(0, 24, 152)}\nbsp&\cellcolor{rgb(0, 24, 160)}\nbsp&\cellcolor{rgb(0, 24, 168)}\nbsp&\cellcolor{rgb(0, 24, 176)}\nbsp&\cellcolor{rgb(0, 24, 184)}\nbsp&\cellcolor{rgb(0, 24, 192)}\nbsp&\cellcolor{rgb(0, 24, 200)}\nbsp&\cellcolor{rgb(0, 24, 208)}\nbsp&\cellcolor{rgb(0, 24, 216)}\nbsp&\cellcolor{rgb(0, 24, 224)}\nbsp&\cellcolor{rgb(0, 24, 232)}\nbsp&\cellcolor{rgb(0, 24, 240)}\nbsp&\cellcolor{rgb(0, 24, 248)}\nbsp\cr
@@ -520,7 +520,7 @@
 \hline
 \end{tabular}
 ]]>
-</code>
-<expected success="true"/>
-</test>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

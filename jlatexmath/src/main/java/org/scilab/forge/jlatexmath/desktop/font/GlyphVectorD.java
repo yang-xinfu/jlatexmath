@@ -7,22 +7,22 @@ import org.scilab.forge.jlatexmath.share.platform.geom.Shape;
 
 public class GlyphVectorD extends GlyphVector {
 
-	private java.awt.font.GlyphVector impl;
+    private java.awt.font.GlyphVector impl;
 
-	public GlyphVectorD(java.awt.font.GlyphVector gv) {
-		impl = gv;
-	}
+    public GlyphVectorD(java.awt.font.GlyphVector gv) {
+        impl = gv;
+    }
 
-	@Override
-	public Shape getGlyphOutline(int i) {
-		java.awt.Shape ret = impl.getGlyphOutline(i);
-		if (ret instanceof java.awt.geom.GeneralPath) {
-			return new GeneralPathD((java.awt.geom.GeneralPath) ret);
-		}
+    @Override
+    public Shape getGlyphOutline(int i) {
+        java.awt.Shape ret = impl.getGlyphOutline(i);
+        if (ret instanceof java.awt.geom.GeneralPath) {
+            return new GeneralPathD((java.awt.geom.GeneralPath) ret);
+        }
 
-		FactoryProvider.getInstance()
-				.debug("unhandled Shape " + ret.getClass());
-		return null;
-	}
+        FactoryProvider.getInstance()
+                .debug("unhandled Shape " + ret.getClass());
+        return null;
+    }
 
 }

@@ -6,8 +6,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 import org.scilab.forge.jlatexmath.share.TypedAtom;
 
 public class CommandMathClose extends Command1A {
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new TypedAtom(TeXConstants.TYPE_CLOSING, a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new TypedAtom(TeXConstants.TYPE_CLOSING, a);
+    }
 }

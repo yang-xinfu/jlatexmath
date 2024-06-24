@@ -48,35 +48,23 @@
 
 package org.scilab.forge.jlatexmath.share;
 
-import java.awt.*;
-import java.io.*;
-import java.nio.charset.StandardCharsets;
-import java.util.Map;
-
 import org.apache.batik.dom.GenericDOMImplementation;
 import org.apache.batik.svggen.SVGGeneratorContext;
 import org.apache.batik.svggen.SVGGraphics2D;
-import org.scilab.forge.jlatexmath.desktop.FactoryProviderDesktop;
 import org.scilab.forge.jlatexmath.desktop.graphics.ColorD;
 import org.scilab.forge.jlatexmath.desktop.graphics.SVGGraphics2DD;
 import org.scilab.forge.jlatexmath.share.exception.ParseException;
-import org.scilab.forge.jlatexmath.share.platform.FactoryProvider;
 import org.scilab.forge.jlatexmath.share.platform.Graphics;
-import org.scilab.forge.jlatexmath.share.platform.graphics.*;
 import org.scilab.forge.jlatexmath.share.platform.graphics.Color;
+import org.scilab.forge.jlatexmath.share.platform.graphics.Graphics2DInterface;
 import org.scilab.forge.jlatexmath.share.platform.graphics.Image;
 import org.scilab.forge.jlatexmath.share.platform.graphics.Insets;
 import org.w3c.dom.DOMImplementation;
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
 
-import javax.swing.*;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
+import java.awt.*;
+import java.io.StringWriter;
+import java.util.Map;
 
 /**
  * Represents a logical mathematical formula that will be displayed (by creating
@@ -396,7 +384,8 @@ public class TeXFormula {
 
         /**
          * Specify the width of the formula
-         * @param align     the alignment
+         *
+         * @param align the alignment
          * @return the builder, used for chaining
          */
         public TeXIconBuilder setAlign(final TeXConstants.Align align) {
@@ -484,7 +473,7 @@ public class TeXFormula {
     }
 
     public static String createSvg(String latex, int style, double size,
-                                 ColorD fg, ColorD bg, boolean fontAsShapes) {
+                                   ColorD fg, ColorD bg, boolean fontAsShapes) {
 
         DOMImplementation domImpl = GenericDOMImplementation.getDOMImplementation();
         String svgNS = "http://www.w3.org/2000/svg";
@@ -512,8 +501,8 @@ public class TeXFormula {
         StringWriter bw = new StringWriter();
 
         try {
-            g2.stream(bw,true);
-        }catch (Exception e) {
+            g2.stream(bw, true);
+        } catch (Exception e) {
             throw new RuntimeException(e);
         }
 
@@ -521,9 +510,9 @@ public class TeXFormula {
     }
 
     /**
-     * @param formula       the formula
-     * @param style         the style
-     * @param size          the size
+     * @param formula the formula
+     * @param style   the style
+     * @param size    the size
      * @return the generated image
      */
     public static Image createBufferedImage(String formula, int style,
@@ -551,8 +540,8 @@ public class TeXFormula {
     }
 
     /**
-     * @param style         the style
-     * @param size          the size
+     * @param style the style
+     * @param size  the size
      * @return the generated image
      */
     public Image createBufferedImage(int style, double size, Color fg, Color bg)

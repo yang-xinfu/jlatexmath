@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
 <tests name="allsymbols">
-  <test>
-    <id name="1"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
                \begin{array}{}
                \bigparallel&\Vdash&\smallsmile&\nRightarrow&\wedge&\bigcup&\theta&\triangleq&\bar&\ngeq&\Lbag&\leftarrowtail&\checkmark&\preccurlyeq&\rightsquigarrow&\because&\prime&\#&\ae&\AE&\blacktriangledown&\$&\centerdot&\%&\&&\Lleftarrow&\succnapprox&\swarrow&\textmu&\lbag&\\
                \Game&\varocircle&\polishlcross&\npreceq&\rightrightarrows&\varodot&\leftrightharpoons&\@&\textpercent&\thickapprox&\questiondown&\surdsign&\O&\P&\textfractionsolidus&\heartsuit&\S&\varLambda&\twoheadrightarrow&\nexists&\backslash&\gtrdot&\nearrow&\eqslantgtr&\varsupsetneqq&\widetilde&\niplus&\Doteq&\forall&\i&\\
@@ -29,7 +29,7 @@
                \end{array}
 
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

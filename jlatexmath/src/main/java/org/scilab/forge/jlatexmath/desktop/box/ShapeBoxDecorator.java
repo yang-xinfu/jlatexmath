@@ -9,8 +9,8 @@ import org.scilab.forge.jlatexmath.share.platform.box.BoxDecorator;
  */
 public class ShapeBoxDecorator implements BoxDecorator {
 
-	@Override
-	public Box decorate(Box box) {
-		return ShapeBox.create(box);
-	}
+    @Override
+    public Box decorate(Box box) {
+        return ShapeBox.create(box);
+    }
 }

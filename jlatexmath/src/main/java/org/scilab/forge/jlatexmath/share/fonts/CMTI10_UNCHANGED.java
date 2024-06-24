@@ -49,20 +49,20 @@ import org.scilab.forge.jlatexmath.share.FontInfo;
 
 final class CMTI10_UNCHANGED extends FontInfo {
 
-	CMTI10_UNCHANGED(final String ttfPath) {
-		super(0, ttfPath, 0.430555, 0.357776, 1.022217, '\u0000');
-	}
+    CMTI10_UNCHANGED(final String ttfPath) {
+        super(0, ttfPath, 0.430555, 0.357776, 1.022217, '\u0000');
+    }
 
-	@Override
-	protected final void initMetrics() {
-		setInfo('\u0024', // char code: 36
-				new double[] { 0.7690935, 0.694445, 0., 0. }, // metrics: width,
-																// height,
-																// depth, italic
-				null, // ligatures
-				null, // kern codes
-				null, // kern values
-				null, '\0', // next larger
-				null); // extension: top, mid, rep, bot
-	}
+    @Override
+    protected final void initMetrics() {
+        setInfo('\u0024', // char code: 36
+                new double[]{0.7690935, 0.694445, 0., 0.}, // metrics: width,
+                // height,
+                // depth, italic
+                null, // ligatures
+                null, // kern codes
+                null, // kern values
+                null, '\0', // next larger
+                null); // extension: top, mid, rep, bot
+    }
 }

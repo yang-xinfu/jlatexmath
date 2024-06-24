@@ -7,8 +7,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandMath extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new MathAtom(a, TeXConstants.STYLE_TEXT);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new MathAtom(a, TeXConstants.STYLE_TEXT);
+    }
 }

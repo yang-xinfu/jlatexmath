@@ -7,9 +7,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandDot1 extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new AccentedAtom(a, Symbols.DOT);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new AccentedAtom(a, Symbols.DOT);
+    }
 
 }

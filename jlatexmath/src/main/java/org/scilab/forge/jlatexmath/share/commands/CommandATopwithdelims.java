@@ -6,8 +6,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandATopwithdelims extends CommandOverwithdelims {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom num, Atom den) {
-		return new FractionAtom(num, den, false);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom num, Atom den) {
+        return new FractionAtom(num, den, false);
+    }
 }

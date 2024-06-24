@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 import org.scilab.forge.jlatexmath.share.TypedAtom;
 
 public class CommandMathInner extends Command1A {
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new TypedAtom(TeXConstants.TYPE_INNER, a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new TypedAtom(TeXConstants.TYPE_INNER, a);
+    }
 
 }

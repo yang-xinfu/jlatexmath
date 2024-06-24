@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandCancel extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new CancelAtom(a, CancelAtom.Type.SLASH);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new CancelAtom(a, CancelAtom.Type.SLASH);
+    }
 
 }

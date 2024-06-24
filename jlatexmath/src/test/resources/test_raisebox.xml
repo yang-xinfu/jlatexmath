@@ -1,29 +1,29 @@
 <?xml version='1.0'?>
 <tests name="raisebox">
-  <test>
-    <id name="1"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
 \fbox{\raisebox{0pt}[0pt][0pt]{\Large \textbf{Aaaa\raisebox{-0.3ex}{a} \raisebox{-0.7ex}{aa} \raisebox{-1.2ex}{r} \raisebox{-2.2ex}{g} \raisebox{-4.5ex}{h}}}}\tfrac{3}{5}      
-      ]]>      
-    </code>
-    <expected success="true"/>
-  </test>
+      ]]>
+        </code>
+        <expected success="true"/>
+    </test>
 
- <test>
-  <id name="2"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="2"/>
+        <code>
+            <![CDATA[
 \fbox{\raisebox{0pt}{\Large \textbf{Aaaa\raisebox{-0.3ex}{a} \raisebox{-0.7ex}{aa} \raisebox{-1.2ex}{r} \raisebox{-2.2ex}{g} \raisebox{-4.5ex}{h}}}}\tfrac{3}{5}
-      ]]>      
-    </code>
-    <expected success="true"/>
- </test>
+      ]]>
+        </code>
+        <expected success="true"/>
+    </test>
 
-  <test>
-  <id name="3"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="3"/>
+        <code>
+            <![CDATA[
                \begin{tabular}{rrrr}
                \hspace{1em} & \hspace{1.8em} & \hspace{3.5em} & \hspace{5.5em} \\
                \rule{0pt}{17pt}-1 & 1 & \raisebox{20pt}{ } & \raisebox{40pt}{ } \\
@@ -32,8 +32,8 @@
                \rule{0pt}{32pt}2 & -2 & \raisebox{20pt}{ -1} & \raisebox{40pt}{ 0} \\
                \rule{0pt}{34pt}3 & -3 & \raisebox{20pt}{ -1} & \raisebox{40pt}{ 0}
                \end{tabular}
-      ]]>      
-    </code>
-    <expected success="true"/>
-  </test>
+      ]]>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.UnderOverArrowAtom;
 
 public class CommandUnderLeftArrow extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new UnderOverArrowAtom(a, true, false);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new UnderOverArrowAtom(a, true, false);
+    }
 
 }

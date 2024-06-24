@@ -50,26 +50,26 @@ package org.scilab.forge.jlatexmath.share;
  */
 public class LCaronAtom extends Atom {
 
-	private static final SymbolAtom APOS = SymbolAtom.get("textapos");
-	private boolean upper;
+    private static final SymbolAtom APOS = SymbolAtom.get("textapos");
+    private boolean upper;
 
-	public LCaronAtom(boolean upper) {
-		this.upper = upper;
-	}
+    public LCaronAtom(boolean upper) {
+        this.upper = upper;
+    }
 
-	@Override
-	public Box createBox(TeXEnvironment env) {
-		CharBox A = new CharBox(
-				env.getTeXFont().getChar(APOS.getCf(), env.getStyle()));
-		CharBox L = new CharBox(
-				env.getTeXFont().getChar(upper ? 'L' : 'l', env.getStyle()));
-		HorizontalBox hb = new HorizontalBox(L);
-		if (upper)
-			hb.add(new SpaceAtom(Unit.EM, -0.3, 0, 0).createBox(env));
-		else
-			hb.add(new SpaceAtom(Unit.EM, -0.13, 0, 0)
-					.createBox(env));
-		hb.add(A);
-		return hb;
-	}
+    @Override
+    public Box createBox(TeXEnvironment env) {
+        CharBox A = new CharBox(
+                env.getTeXFont().getChar(APOS.getCf(), env.getStyle()));
+        CharBox L = new CharBox(
+                env.getTeXFont().getChar(upper ? 'L' : 'l', env.getStyle()));
+        HorizontalBox hb = new HorizontalBox(L);
+        if (upper)
+            hb.add(new SpaceAtom(Unit.EM, -0.3, 0, 0).createBox(env));
+        else
+            hb.add(new SpaceAtom(Unit.EM, -0.13, 0, 0)
+                    .createBox(env));
+        hb.add(A);
+        return hb;
+    }
 }

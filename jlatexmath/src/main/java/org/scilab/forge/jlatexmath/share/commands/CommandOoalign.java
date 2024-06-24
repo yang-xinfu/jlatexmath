@@ -52,18 +52,18 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandOoalign extends CommandMatrix {
 
-	@Override
-	public boolean init(TeXParser tp) {
-		super.init(tp);
-		aoa.setOneColumn(true);
-		return true;
-	}
+    @Override
+    public boolean init(TeXParser tp) {
+        super.init(tp);
+        aoa.setOneColumn(true);
+        return true;
+    }
 
-	@Override
-	public Atom newI(TeXParser tp) {
-		if (aoa.col == 0) {
-			return EmptyAtom.get();
-		}
-		return new OoalignAtom(aoa);
-	}
+    @Override
+    public Atom newI(TeXParser tp) {
+        if (aoa.col == 0) {
+            return EmptyAtom.get();
+        }
+        return new OoalignAtom(aoa);
+    }
 }

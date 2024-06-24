@@ -45,40 +45,35 @@
 
 package org.scilab.forge.jlatexmath.share.mhchem;
 
-import org.scilab.forge.jlatexmath.share.Atom;
-import org.scilab.forge.jlatexmath.share.Box;
-import org.scilab.forge.jlatexmath.share.Symbols;
-import org.scilab.forge.jlatexmath.share.TeXConstants;
-import org.scilab.forge.jlatexmath.share.TeXEnvironment;
-import org.scilab.forge.jlatexmath.share.TeXFont;
+import org.scilab.forge.jlatexmath.share.*;
 
 /**
  * An atom to represent a bond (used in mhchem)
  */
 public class MhchemBondAtom extends Atom {
 
-	private final int n;
-	private final int pos;
+    private final int n;
+    private final int pos;
 
-	public MhchemBondAtom(int n, int pos) {
-		this.n = n;
-		this.pos = pos;
-		this.type = TeXConstants.TYPE_RELATION;
-	}
+    public MhchemBondAtom(int n, int pos) {
+        this.n = n;
+        this.pos = pos;
+        this.type = TeXConstants.TYPE_RELATION;
+    }
 
-	public MhchemBondAtom(int n) {
-		this(n, -1);
-	}
+    public MhchemBondAtom(int n) {
+        this(n, -1);
+    }
 
-	@Override
-	public Box createBox(TeXEnvironment env) {
-		final Box equals = Symbols.EQUALS.createBox(env);
-		final TeXFont tf = env.getTeXFont();
-		final int style = env.getStyle();
-		final double drt = tf.getDefaultRuleThickness(style);
-		final double axis = tf.getAxisHeight(style);
-		final double space = 2. * (equals.getHeight() - axis - drt);
+    @Override
+    public Box createBox(TeXEnvironment env) {
+        final Box equals = Symbols.EQUALS.createBox(env);
+        final TeXFont tf = env.getTeXFont();
+        final int style = env.getStyle();
+        final double drt = tf.getDefaultRuleThickness(style);
+        final double axis = tf.getAxisHeight(style);
+        final double space = 2. * (equals.getHeight() - axis - drt);
 
-		return new MhchemBondBox(n, pos, axis, drt, space, equals.getWidth());
-	}
+        return new MhchemBondBox(n, pos, axis, drt, space, equals.getWidth());
+    }
 }

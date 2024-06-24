@@ -7,8 +7,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandGrave1 extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new AccentedAtom(a, Symbols.GRAVE);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new AccentedAtom(a, Symbols.GRAVE);
+    }
 }

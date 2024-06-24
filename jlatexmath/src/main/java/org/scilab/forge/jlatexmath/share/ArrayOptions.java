@@ -50,172 +50,172 @@ import java.util.List;
 
 public final class ArrayOptions {
 
-	public static final class Option {
+    public static final class Option {
 
-		private final TeXConstants.Align alignment;
-		private List<Atom> separators;
+        private final TeXConstants.Align alignment;
+        private List<Atom> separators;
 
-		Option(final TeXConstants.Align alignment) {
-			this.alignment = alignment;
-			this.separators = new ArrayList<>();
-		}
+        Option(final TeXConstants.Align alignment) {
+            this.alignment = alignment;
+            this.separators = new ArrayList<>();
+        }
 
-		public TeXConstants.Align getAlignment() {
-			return alignment;
-		}
+        public TeXConstants.Align getAlignment() {
+            return alignment;
+        }
 
-		public boolean isVline() {
-			return separators.size() == 1
-					&& separators.get(0) instanceof VlineAtom;
-		}
+        public boolean isVline() {
+            return separators.size() == 1
+                    && separators.get(0) instanceof VlineAtom;
+        }
 
-		public boolean isAlignment() {
-			return !isVline();
-		}
+        public boolean isAlignment() {
+            return !isVline();
+        }
 
-		public List<Atom> getSeparators() {
-			return separators;
-		}
+        public List<Atom> getSeparators() {
+            return separators;
+        }
 
-		@Override
-		public String toString() {
-			String a = "";
-			switch (alignment) {
-			case LEFT:
-				a = "left";
-				break;
-			case RIGHT:
-				a = "right";
-				break;
-			case CENTER:
-				a = "center";
-				break;
-			case NONE:
-				a = "none";
-				break;
-			case INVALID:
-				a = "first";
-				break;
-			}
+        @Override
+        public String toString() {
+            String a = "";
+            switch (alignment) {
+                case LEFT:
+                    a = "left";
+                    break;
+                case RIGHT:
+                    a = "right";
+                    break;
+                case CENTER:
+                    a = "center";
+                    break;
+                case NONE:
+                    a = "none";
+                    break;
+                case INVALID:
+                    a = "first";
+                    break;
+            }
 
-			a += ":";
-			for (Atom separator : separators) {
-				a += separator.toString();
-			}
+            a += ":";
+            for (Atom separator : separators) {
+                a += separator.toString();
+            }
 
-			return a;
-		}
-	}
+            return a;
+        }
+    }
 
-	private final List<Option> options;
-	private final static ArrayOptions empty = new ArrayOptions(0);
+    private final List<Option> options;
+    private final static ArrayOptions empty = new ArrayOptions(0);
 
-	public ArrayOptions() {
-		options = new ArrayList<Option>();
-	}
+    public ArrayOptions() {
+        options = new ArrayList<Option>();
+    }
 
-	public ArrayOptions(final int size) {
-		options = new ArrayList<Option>(size);
-	}
+    public ArrayOptions(final int size) {
+        options = new ArrayList<Option>(size);
+    }
 
-	public static ArrayOptions getEmpty() {
-		return empty;
-	}
+    public static ArrayOptions getEmpty() {
+        return empty;
+    }
 
-	public List<List<Atom>> getSeparators() {
-		List<List<Atom>> atoms = new ArrayList<>();
-		for (final Option opt : options) {
-			atoms.add(opt.getSeparators());
-		}
+    public List<List<Atom>> getSeparators() {
+        List<List<Atom>> atoms = new ArrayList<>();
+        for (final Option opt : options) {
+            atoms.add(opt.getSeparators());
+        }
 
-		return atoms;
-	}
+        return atoms;
+    }
 
-	public List<Box> getSeparatorBoxes(TeXEnvironment env) {
-		List<Box> boxes = new ArrayList<>();
-		for (Option opt : options) {
-			boxes.add(new RowAtom(opt.separators).createBox(env));
-		}
+    public List<Box> getSeparatorBoxes(TeXEnvironment env) {
+        List<Box> boxes = new ArrayList<>();
+        for (Option opt : options) {
+            boxes.add(new RowAtom(opt.separators).createBox(env));
+        }
 
-		return boxes;
-	}
+        return boxes;
+    }
 
-	public ArrayOptions close() {
-		if (!options.isEmpty() && last().isAlignment()) {
-			addSeparator(VlineAtom.getEmpty());
-		}
-		return this;
-	}
+    public ArrayOptions close() {
+        if (!options.isEmpty() && last().isAlignment()) {
+            addSeparator(VlineAtom.getEmpty());
+        }
+        return this;
+    }
 
-	public Option last() {
-		return options.get(options.size() - 1);
-	}
+    public Option last() {
+        return options.get(options.size() - 1);
+    }
 
-	public ArrayOptions complete(final int n) {
-		final int s = options.size();
-		for (int i = 0; i < n - s; ++i) {
-			addAlignment(TeXConstants.Align.CENTER);
-		}
-		return this;
-	}
+    public ArrayOptions complete(final int n) {
+        final int s = options.size();
+        for (int i = 0; i < n - s; ++i) {
+            addAlignment(TeXConstants.Align.CENTER);
+        }
+        return this;
+    }
 
-	public TeXConstants.Align getAlignment(final int i) {
-		return options.get(i + 1).getAlignment();
-	}
+    public TeXConstants.Align getAlignment(final int i) {
+        return options.get(i + 1).getAlignment();
+    }
 
-	public boolean hasAlignment() {
-		return options.size() >= 1;
-	}
+    public boolean hasAlignment() {
+        return options.size() >= 1;
+    }
 
-	public ArrayOptions addAlignment(final TeXConstants.Align alignment) {
-		if (options.isEmpty() || last().isAlignment()) {
-			addSeparator(VlineAtom.getEmpty());
-		}
-		options.add(new Option(alignment));
-		return this;
-	}
+    public ArrayOptions addAlignment(final TeXConstants.Align alignment) {
+        if (options.isEmpty() || last().isAlignment()) {
+            addSeparator(VlineAtom.getEmpty());
+        }
+        options.add(new Option(alignment));
+        return this;
+    }
 
-	public void addVline(final int n) {
-		addSeparator(new VlineAtom(n));
-	}
+    public void addVline(final int n) {
+        addSeparator(new VlineAtom(n));
+    }
 
-	public ArrayOptions addSeparator(final Atom a) {
-		final int s = options.size();
-		if (s == 0) {
-			final Option o = new Option(TeXConstants.Align.INVALID);
-			o.separators.add(a);
-			options.add(o);
-		} else {
-			final Option lastOption = options.get(s - 1);
-			final List<Atom> separators = lastOption.separators;
+    public ArrayOptions addSeparator(final Atom a) {
+        final int s = options.size();
+        if (s == 0) {
+            final Option o = new Option(TeXConstants.Align.INVALID);
+            o.separators.add(a);
+            options.add(o);
+        } else {
+            final Option lastOption = options.get(s - 1);
+            final List<Atom> separators = lastOption.separators;
 
-			if (!separators.isEmpty()) {
-				Atom lastSeparator = separators.get(separators.size() - 1);
+            if (!separators.isEmpty()) {
+                Atom lastSeparator = separators.get(separators.size() - 1);
 
-				if (lastSeparator instanceof VlineAtom && a instanceof VlineAtom) {
-					((VlineAtom) lastSeparator).add(((VlineAtom) a).getNumber());
-					return this;
-				}
-			}
+                if (lastSeparator instanceof VlineAtom && a instanceof VlineAtom) {
+                    ((VlineAtom) lastSeparator).add(((VlineAtom) a).getNumber());
+                    return this;
+                }
+            }
 
-			separators.add(a);
-		}
+            separators.add(a);
+        }
 
-		return this;
-	}
+        return this;
+    }
 
-	@Override
-	public String toString() {
-		String s = "";
-		boolean first = true;
-		for (Option o : options) {
-			if (first) {
-				s = o.toString();
-				first = false;
-			} else {
-				s += ", " + o.toString();
-			}
-		}
-		return s + " size:" + options.size();
-	}
+    @Override
+    public String toString() {
+        String s = "";
+        boolean first = true;
+        for (Option o : options) {
+            if (first) {
+                s = o.toString();
+                first = false;
+            } else {
+                s += ", " + o.toString();
+            }
+        }
+        return s + " size:" + options.size();
+    }
 }

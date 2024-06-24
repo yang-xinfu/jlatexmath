@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandTextIt extends CommandText {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new ItAtom(a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new ItAtom(a);
+    }
 
 }

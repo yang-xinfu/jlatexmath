@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandH extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new AccentedAtom(a, "doubleacute");
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new AccentedAtom(a, "doubleacute");
+    }
 
 }

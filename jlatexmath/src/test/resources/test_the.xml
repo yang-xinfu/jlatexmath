@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
 <tests name="the">
-  <test>
-    <id name="1"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
                \begin{array}{l}
                \the\fboxsep\cr
                \the\fboxrule\cr
@@ -36,8 +36,8 @@
                \setlength{\foo}{1.234cc}\the\foo\cr
                \setlength{\foo}{-1.234cc}\the\foo\cr
                \end{array}
-      ]]>      
-    </code>
-    <expected success="true"/>
-  </test>
+      ]]>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

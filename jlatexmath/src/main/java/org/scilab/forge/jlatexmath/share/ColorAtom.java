@@ -53,79 +53,76 @@ import org.scilab.forge.jlatexmath.share.platform.graphics.Color;
  */
 public class ColorAtom extends Atom implements Row {
 
-	// background color
-	private final Color background;
+    // background color
+    private final Color background;
 
-	// foreground color
-	private final Color color;
+    // foreground color
+    private final Color color;
 
-	// RowAtom for which the colorsettings apply
-	protected final RowAtom elements;
+    // RowAtom for which the colorsettings apply
+    protected final RowAtom elements;
 
-	/**
-	 * Creates a new ColorAtom that sets the given colors for the given atom.
-	 * Null for a color means: no specific color set for this atom.
-	 *
-	 * @param atom
-	 *            the atom for which the given colors have to be set
-	 * @param bg
-	 *            the background color
-	 * @param c
-	 *            the foreground color
-	 */
-	public ColorAtom(Atom atom, Color bg, Color c) {
-		elements = new RowAtom(atom);
-		background = bg;
-		color = c;
-	}
+    /**
+     * Creates a new ColorAtom that sets the given colors for the given atom.
+     * Null for a color means: no specific color set for this atom.
+     *
+     * @param atom the atom for which the given colors have to be set
+     * @param bg   the background color
+     * @param c    the foreground color
+     */
+    public ColorAtom(Atom atom, Color bg, Color c) {
+        elements = new RowAtom(atom);
+        background = bg;
+        color = c;
+    }
 
-	@Override
-	public Box createBox(TeXEnvironment env) {
-		env.isColored = true;
-		TeXEnvironment copy = env.copy();
-		if (background != null)
-			copy.setBackground(background);
-		if (color != null)
-			copy.setColor(color);
-		return elements.createBox(copy);
-	}
+    @Override
+    public Box createBox(TeXEnvironment env) {
+        env.isColored = true;
+        TeXEnvironment copy = env.copy();
+        if (background != null)
+            copy.setBackground(background);
+        if (color != null)
+            copy.setColor(color);
+        return elements.createBox(copy);
+    }
 
-	@Override
-	public int getLeftType() {
-		return elements.getLeftType();
-	}
+    @Override
+    public int getLeftType() {
+        return elements.getLeftType();
+    }
 
-	@Override
-	public int getRightType() {
-		return elements.getRightType();
-	}
+    @Override
+    public int getRightType() {
+        return elements.getRightType();
+    }
 
-	@Override
-	public void setPreviousAtom(Dummy prev) {
-		elements.setPreviousAtom(prev);
-	}
+    @Override
+    public void setPreviousAtom(Dummy prev) {
+        elements.setPreviousAtom(prev);
+    }
 
-	protected Color getColor() {
-		return color;
-	}
+    protected Color getColor() {
+        return color;
+    }
 
-	protected Color getBackground() {
-		return background;
-	}
+    protected Color getBackground() {
+        return background;
+    }
 
-	protected Color getFg() {
-		return color;
-	}
+    protected Color getFg() {
+        return color;
+    }
 
-	protected Color getBg() {
-		return background;
-	}
+    protected Color getBg() {
+        return background;
+    }
 
-	public RowAtom getElements() {
-		return elements;
-	}
+    public RowAtom getElements() {
+        return elements;
+    }
 
-	public Atom getElement(int i) {
-		return elements.getElement(i);
-	}
+    public Atom getElement(int i) {
+        return elements.getElement(i);
+    }
 }

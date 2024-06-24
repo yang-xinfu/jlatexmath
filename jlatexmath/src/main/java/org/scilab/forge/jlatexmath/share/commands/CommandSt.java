@@ -6,8 +6,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandSt extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new StrikeThroughAtom(a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new StrikeThroughAtom(a);
+    }
 }

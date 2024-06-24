@@ -7,8 +7,8 @@ import org.scilab.forge.jlatexmath.share.Box;
  */
 public class DefaultBoxDecorator implements BoxDecorator {
 
-	@Override
-	public Box decorate(Box box) {
-		return box;
-	}
+    @Override
+    public Box decorate(Box box) {
+        return box;
+    }
 }

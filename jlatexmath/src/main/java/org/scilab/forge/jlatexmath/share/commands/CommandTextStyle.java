@@ -51,19 +51,19 @@ import org.scilab.forge.jlatexmath.share.TextStyleAtom;
 
 public class CommandTextStyle extends Command {
 
-	private final int style;
+    private final int style;
 
-	public CommandTextStyle(final int style) {
-		this.style = style;
-	}
+    public CommandTextStyle(final int style) {
+        this.style = style;
+    }
 
-	@Override
-	public boolean init(TeXParser tp) {
-		return true;
-	}
+    @Override
+    public boolean init(TeXParser tp) {
+        return true;
+    }
 
-	@Override
-	public void add(TeXParser tp, Atom a) {
-		tp.closeConsumer(new TextStyleAtom(a, style));
-	}
+    @Override
+    public void add(TeXParser tp, Atom a) {
+        tp.closeConsumer(new TextStyleAtom(a, style));
+    }
 }

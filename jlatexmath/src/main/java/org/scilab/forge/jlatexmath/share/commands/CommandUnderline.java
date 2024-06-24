@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.UnderlinedAtom;
 
 public class CommandUnderline extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new UnderlinedAtom(a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new UnderlinedAtom(a);
+    }
 
 }

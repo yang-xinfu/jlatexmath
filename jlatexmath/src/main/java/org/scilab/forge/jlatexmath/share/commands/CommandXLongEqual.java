@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.XLongequalAtom;
 
 public class CommandXLongEqual extends Command1O1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a, Atom b) {
-		return new XLongequalAtom(b, a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a, Atom b) {
+        return new XLongequalAtom(b, a);
+    }
 
 }

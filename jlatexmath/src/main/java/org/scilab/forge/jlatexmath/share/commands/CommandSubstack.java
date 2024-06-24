@@ -45,29 +45,24 @@
 
 package org.scilab.forge.jlatexmath.share.commands;
 
-import org.scilab.forge.jlatexmath.share.ArrayOptions;
-import org.scilab.forge.jlatexmath.share.Atom;
-import org.scilab.forge.jlatexmath.share.EmptyAtom;
-import org.scilab.forge.jlatexmath.share.SubarrayAtom;
-import org.scilab.forge.jlatexmath.share.TeXConstants;
-import org.scilab.forge.jlatexmath.share.TeXParser;
+import org.scilab.forge.jlatexmath.share.*;
 
 public class CommandSubstack extends CommandMatrix {
 
-	@Override
-	public boolean init(TeXParser tp) {
-		super.init(tp);
-		aoa.setOneColumn(true);
-		return true;
-	}
+    @Override
+    public boolean init(TeXParser tp) {
+        super.init(tp);
+        aoa.setOneColumn(true);
+        return true;
+    }
 
-	@Override
-	public Atom newI(TeXParser tp) {
-		if (aoa.col == 0) {
-			return EmptyAtom.get();
-		}
-		return new SubarrayAtom(aoa,
-				new ArrayOptions(1).addAlignment(TeXConstants.Align.CENTER));
-	}
+    @Override
+    public Atom newI(TeXParser tp) {
+        if (aoa.col == 0) {
+            return EmptyAtom.get();
+        }
+        return new SubarrayAtom(aoa,
+                new ArrayOptions(1).addAlignment(TeXConstants.Align.CENTER));
+    }
 
 }

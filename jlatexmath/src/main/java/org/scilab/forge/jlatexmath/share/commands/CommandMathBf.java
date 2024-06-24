@@ -7,8 +7,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandMathBf extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new BoldAtom(new RomanAtom(a));
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new BoldAtom(new RomanAtom(a));
+    }
 }

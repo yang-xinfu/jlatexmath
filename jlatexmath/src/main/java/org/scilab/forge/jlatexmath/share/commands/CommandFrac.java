@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandFrac extends Command2A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a, Atom b) {
-		return new FractionAtom(a, b);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a, Atom b) {
+        return new FractionAtom(a, b);
+    }
 
 }

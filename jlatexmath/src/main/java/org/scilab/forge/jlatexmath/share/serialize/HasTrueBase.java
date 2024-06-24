@@ -4,6 +4,6 @@ import org.scilab.forge.jlatexmath.share.Atom;
 
 public interface HasTrueBase {
 
-	Atom getTrueBase();
+    Atom getTrueBase();
 
 }

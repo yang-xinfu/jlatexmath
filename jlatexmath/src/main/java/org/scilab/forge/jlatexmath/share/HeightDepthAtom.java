@@ -47,22 +47,22 @@ package org.scilab.forge.jlatexmath.share;
 
 public class HeightDepthAtom extends Atom {
 
-	final TeXLength height;
-	final TeXLength depth;
-	final Atom base;
+    final TeXLength height;
+    final TeXLength depth;
+    final Atom base;
 
-	public HeightDepthAtom(final TeXLength height, final TeXLength depth,
-			final Atom base) {
-		this.height = height;
-		this.depth = depth;
-		this.base = base;
-	}
+    public HeightDepthAtom(final TeXLength height, final TeXLength depth,
+                           final Atom base) {
+        this.height = height;
+        this.depth = depth;
+        this.base = base;
+    }
 
-	@Override
-	public Box createBox(TeXEnvironment env) {
-		final Box b = base.createBox(env);
-		b.setHeight(height.getValue(env));
-		b.setDepth(depth.getValue(env));
-		return b;
-	}
+    @Override
+    public Box createBox(TeXEnvironment env) {
+        final Box b = base.createBox(env);
+        b.setHeight(height.getValue(env));
+        b.setDepth(depth.getValue(env));
+        return b;
+    }
 }

@@ -51,29 +51,29 @@ package org.scilab.forge.jlatexmath.share;
  */
 public class MiddleAtom extends Atom {
 
-	private Atom base;
-	private Box box = StrutBox.getEmpty();
+    private Atom base;
+    private Box box = StrutBox.getEmpty();
 
-	public MiddleAtom(Atom at) {
-		base = at;
-	}
+    public MiddleAtom(Atom at) {
+        base = at;
+    }
 
-	public MiddleAtom(Atom at, Box box0) {
-		base = at;
-		box = box0;
-	}
+    public MiddleAtom(Atom at, Box box0) {
+        base = at;
+        box = box0;
+    }
 
-	@Override
-	public Atom getBase() {
-		return base;
-	}
+    @Override
+    public Atom getBase() {
+        return base;
+    }
 
-	public void setBox(final Box box) {
-		this.box = box;
-	}
+    public void setBox(final Box box) {
+        this.box = box;
+    }
 
-	@Override
-	public Box createBox(TeXEnvironment env) {
-		return box;
-	}
+    @Override
+    public Box createBox(TeXEnvironment env) {
+        return box;
+    }
 }

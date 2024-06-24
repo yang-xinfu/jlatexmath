@@ -45,28 +45,24 @@
 
 package org.scilab.forge.jlatexmath.share.mhchem;
 
-import org.scilab.forge.jlatexmath.share.Atom;
-import org.scilab.forge.jlatexmath.share.Box;
-import org.scilab.forge.jlatexmath.share.StrutBox;
-import org.scilab.forge.jlatexmath.share.TeXConstants;
-import org.scilab.forge.jlatexmath.share.TeXEnvironment;
+import org.scilab.forge.jlatexmath.share.*;
 
 /**
  * An empty atom used in mhchem.
  */
 public class CEEmptyAtom extends Atom {
 
-	public CEEmptyAtom() {
-		type = TeXConstants.TYPE_ORDINARY;
-	}
+    public CEEmptyAtom() {
+        type = TeXConstants.TYPE_ORDINARY;
+    }
 
-	public static CEEmptyAtom get() {
-		return new CEEmptyAtom();
-	}
+    public static CEEmptyAtom get() {
+        return new CEEmptyAtom();
+    }
 
-	@Override
-	public Box createBox(TeXEnvironment env) {
-		return new StrutBox(0., env.getTeXFont().getMHeight(env.getStyle()), 0.,
-				0.);
-	}
+    @Override
+    public Box createBox(TeXEnvironment env) {
+        return new StrutBox(0., env.getTeXFont().getMHeight(env.getStyle()), 0.,
+                0.);
+    }
 }

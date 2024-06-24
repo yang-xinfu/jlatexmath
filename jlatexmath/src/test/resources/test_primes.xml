@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
 <tests name="primes">
-  <test>
-    <id name="1"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
                \begin{gather}
                ``hello''\cr
                \text{``hello''}\cr
@@ -19,8 +19,8 @@
                \char{8220}hello\char{8221}\cr
                \text{\char{8220}hello\char{8221}}\cr
                \end{gather}
-      ]]>      
-    </code>
-    <expected success="true"/>
-  </test>
+      ]]>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

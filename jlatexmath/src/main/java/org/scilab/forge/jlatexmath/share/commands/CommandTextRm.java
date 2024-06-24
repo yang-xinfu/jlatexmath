@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandTextRm extends CommandText {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new RomanAtom(a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new RomanAtom(a);
+    }
 
 }

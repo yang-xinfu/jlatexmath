@@ -7,16 +7,16 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandLarge extends CommandStyle {
 
-	public CommandLarge() {
-		//
-	}
+    public CommandLarge() {
+        //
+    }
 
-	public CommandLarge(RowAtom size) {
-		this.size = size;
-	}
+    public CommandLarge(RowAtom size) {
+        this.size = size;
+    }
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new MonoScaleAtom(a, 1.2);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new MonoScaleAtom(a, 1.2);
+    }
 }

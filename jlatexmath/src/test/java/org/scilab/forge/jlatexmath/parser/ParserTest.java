@@ -45,19 +45,18 @@
 
 package org.scilab.forge.jlatexmath.parser;
 
-import java.awt.Color;
+import org.junit.Test;
+import org.scilab.forge.jlatexmath.share.TeXLength;
+import org.scilab.forge.jlatexmath.share.TeXParser;
+import org.scilab.forge.jlatexmath.share.Unit;
+
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-import org.scilab.forge.jlatexmath.share.Colors;
-import org.scilab.forge.jlatexmath.share.TeXLength;
-import org.scilab.forge.jlatexmath.share.TeXParser;
-import org.scilab.forge.jlatexmath.share.Unit;
 
 
 public class ParserTest {
@@ -167,10 +166,10 @@ public class ParserTest {
 
     @Test
     public void getArgAsString() {
-        String[] s = new String[] {
-            "{hello world}A",
-            "           {hello world}A",
-            " \t \t       {hello world}A"
+        String[] s = new String[]{
+                "{hello world}A",
+                "           {hello world}A",
+                " \t \t       {hello world}A"
         };
         for (int i = 0; i < s.length; ++i) {
             TeXParser tp = new TeXParser(s[i]);
@@ -182,10 +181,10 @@ public class ParserTest {
 
     @Test
     public void getOptionAsString() {
-        String[] s = new String[] {
-            "[hello world]A",
-            "           [hello world]A",
-            " \t \t       [hello world]A"
+        String[] s = new String[]{
+                "[hello world]A",
+                "           [hello world]A",
+                " \t \t       [hello world]A"
         };
         for (int i = 0; i < s.length; ++i) {
             TeXParser tp = new TeXParser(s[i]);
@@ -197,12 +196,12 @@ public class ParserTest {
 
     @Test
     public void getArgAsPositiveInteger() {
-        String[] s = new String[] {
-            "{12345}A",
-            "           {12345}A",
-            " \t \t       {12345}A",
-            " {    12345}A",
-            " {    12345       }A",
+        String[] s = new String[]{
+                "{12345}A",
+                "           {12345}A",
+                " \t \t       {12345}A",
+                " {    12345}A",
+                " {    12345       }A",
         };
         for (int i = 0; i < s.length; ++i) {
             TeXParser tp = new TeXParser(s[i]);
@@ -214,10 +213,10 @@ public class ParserTest {
 
     @Test
     public void getOptionAsPositiveInteger() {
-        String[] s = new String[] {
-            "[12345]A",
-            "           [12345]A",
-            " \t \t       [12345]A"
+        String[] s = new String[]{
+                "[12345]A",
+                "           [12345]A",
+                " \t \t       [12345]A"
         };
         for (int i = 0; i < s.length; ++i) {
             TeXParser tp = new TeXParser(s[i]);
@@ -229,14 +228,14 @@ public class ParserTest {
 
     @Test
     public void getArgAsDecimal() {
-        String[] s = new String[] {
-            "{12.345}A",
-            "           {12.345}A",
-            " \t \t       {12.345}A",
-            "       {   12.345   }A",
-            "12.345A",
-            "           12.345A",
-            " \t \t       12.345A"
+        String[] s = new String[]{
+                "{12.345}A",
+                "           {12.345}A",
+                " \t \t       {12.345}A",
+                "       {   12.345   }A",
+                "12.345A",
+                "           12.345A",
+                " \t \t       12.345A"
         };
         String n = "12.345";
         for (int i = 0; i < s.length; ++i) {
@@ -249,11 +248,11 @@ public class ParserTest {
 
     @Test
     public void getOptionAsDecimal() {
-        String[] s = new String[] {
-            "[-123.45]A",
-            "           [-123.45]A",
-            " \t \t       [-123.45]A",
-            " \t \t       [ \t  \t  -123.45    \t     ]A"
+        String[] s = new String[]{
+                "[-123.45]A",
+                "           [-123.45]A",
+                " \t \t       [-123.45]A",
+                " \t \t       [ \t  \t  -123.45    \t     ]A"
         };
         String n = "-123.45";
         for (int i = 0; i < s.length; ++i) {
@@ -267,11 +266,11 @@ public class ParserTest {
     @Test
     public void getCommand() {
         String[][] s = {{"hello", "hello"},
-            {"world", "world"},
-            {"1234", "1"},
-            {"st0p", "st"},
-            {"\\foo", "\\"},
-            {"?bar", "?"}
+                {"world", "world"},
+                {"1234", "1"},
+                {"st0p", "st"},
+                {"\\foo", "\\"},
+                {"?bar", "?"}
         };
         for (int i = 0; i < s.length; ++i) {
             TeXParser tp = new TeXParser("\\" + s[i][0]);

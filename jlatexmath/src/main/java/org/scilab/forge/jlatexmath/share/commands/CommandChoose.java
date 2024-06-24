@@ -45,24 +45,20 @@
 
 package org.scilab.forge.jlatexmath.share.commands;
 
-import org.scilab.forge.jlatexmath.share.Atom;
-import org.scilab.forge.jlatexmath.share.FencedAtom;
-import org.scilab.forge.jlatexmath.share.FractionAtom;
-import org.scilab.forge.jlatexmath.share.SymbolAtom;
-import org.scilab.forge.jlatexmath.share.TeXParser;
+import org.scilab.forge.jlatexmath.share.*;
 
 public class CommandChoose extends CommandOver {
 
-	final SymbolAtom L;
-	final SymbolAtom R;
+    final SymbolAtom L;
+    final SymbolAtom R;
 
-	public CommandChoose(final SymbolAtom L, final SymbolAtom R) {
-		this.L = L;
-		this.R = R;
-	}
+    public CommandChoose(final SymbolAtom L, final SymbolAtom R) {
+        this.L = L;
+        this.R = R;
+    }
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a, Atom b) {
-		return new FencedAtom(new FractionAtom(a, b, false), L, R);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a, Atom b) {
+        return new FencedAtom(new FractionAtom(a, b, false), L, R);
+    }
 }

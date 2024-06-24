@@ -7,9 +7,9 @@ import org.scilab.forge.jlatexmath.share.TypedAtom;
 
 public class CommandMathRel extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new TypedAtom(TeXConstants.TYPE_RELATION, a);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new TypedAtom(TeXConstants.TYPE_RELATION, a);
+    }
 
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <tests name="colors">
-<test>
-<id name="1"/>
-<code>
-<![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
 \hline
 \cellcolor{#000}\nbsp&\cellcolor{#001}\nbsp&\cellcolor{#002}\nbsp&\cellcolor{#003}\nbsp&\cellcolor{#004}\nbsp&\cellcolor{#005}\nbsp&\cellcolor{#006}\nbsp&\cellcolor{#007}\nbsp&\cellcolor{#008}\nbsp&\cellcolor{#009}\nbsp&\cellcolor{#00A}\nbsp&\cellcolor{#00B}\nbsp&\cellcolor{#00C}\nbsp&\cellcolor{#00D}\nbsp&\cellcolor{#00E}\nbsp&\cellcolor{#00F}\nbsp&\cellcolor{#010}\nbsp&\cellcolor{#011}\nbsp&\cellcolor{#012}\nbsp&\cellcolor{#013}\nbsp&\cellcolor{#014}\nbsp&\cellcolor{#015}\nbsp&\cellcolor{#016}\nbsp&\cellcolor{#017}\nbsp&\cellcolor{#018}\nbsp&\cellcolor{#019}\nbsp&\cellcolor{#01A}\nbsp&\cellcolor{#01B}\nbsp&\cellcolor{#01C}\nbsp&\cellcolor{#01D}\nbsp&\cellcolor{#01E}\nbsp&\cellcolor{#01F}\nbsp&\cellcolor{#020}\nbsp&\cellcolor{#021}\nbsp&\cellcolor{#022}\nbsp&\cellcolor{#023}\nbsp&\cellcolor{#024}\nbsp&\cellcolor{#025}\nbsp&\cellcolor{#026}\nbsp&\cellcolor{#027}\nbsp&\cellcolor{#028}\nbsp&\cellcolor{#029}\nbsp&\cellcolor{#02A}\nbsp&\cellcolor{#02B}\nbsp&\cellcolor{#02C}\nbsp&\cellcolor{#02D}\nbsp&\cellcolor{#02E}\nbsp&\cellcolor{#02F}\nbsp&\cellcolor{#030}\nbsp&\cellcolor{#031}\nbsp&\cellcolor{#032}\nbsp&\cellcolor{#033}\nbsp&\cellcolor{#034}\nbsp&\cellcolor{#035}\nbsp&\cellcolor{#036}\nbsp&\cellcolor{#037}\nbsp&\cellcolor{#038}\nbsp&\cellcolor{#039}\nbsp&\cellcolor{#03A}\nbsp&\cellcolor{#03B}\nbsp&\cellcolor{#03C}\nbsp&\cellcolor{#03D}\nbsp&\cellcolor{#03E}\nbsp&\cellcolor{#03F}\nbsp\cr
@@ -136,7 +136,7 @@
 \hline
 \end{tabular}
 ]]>
-</code>
-<expected success="true"/>
-</test>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

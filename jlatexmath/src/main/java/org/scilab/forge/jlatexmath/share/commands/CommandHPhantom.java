@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandHPhantom extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new PhantomAtom(a, true, false, false);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new PhantomAtom(a, true, false, false);
+    }
 
 }

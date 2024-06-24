@@ -1,9 +1,9 @@
 <?xml version='1.0'?>
 <tests name="examples">
-  <test>
-    <id name="1"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="1"/>
+        <code>
+            <![CDATA[
                \begin{array}{lr}\mbox{\textcolor{Blue}{Russian}}&\mbox{\textcolor{Melon}{Greek}}\\
                \mbox{ПРИВЕТ МИР}&\mbox{ΓΕΙΆ ΚΌΣΜΟ}\\
                \mbox{привет мир}&\mbox{γειά κόσμο}\\
@@ -22,14 +22,14 @@
                \mbox{прывітаньне Свет}&\mbox{привіт світ}\\
                \end{array}
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
-  
-  <test>
-    <id name="2"/>
-    <code>
-      <![CDATA[
+        </code>
+        <expected success="true"/>
+    </test>
+
+    <test>
+        <id name="2"/>
+        <code>
+            <![CDATA[
                \begin{array}{l}
 	           \forall\varepsilon\in\mathbb{R}_+^*\ \exists\eta>0\ |x-x_0|\leq\eta\Longrightarrow|f(x)-f(x_0)|\leq\varepsilon\\
 	           \det\begin{bmatrix}a_{11}&a_{12}&\cdots&a_{1n}\\a_{21}&\ddots&&\vdots\\\vdots&&\ddots&\vdots\\a_{n1}&\cdots&\cdots&a_{nn}\end{bmatrix}\overset{\mathrm{def}}{=}\sum_{\sigma\in\mathfrak{S}_n}\varepsilon(\sigma)\prod_{k=1}^n a_{k\sigma(k)}\\
@@ -41,14 +41,14 @@
 	           \begin{array}{rl} s &= \int_a^b\left\|\frac{d}{dt}\vec{r}\,(u(t),v(t))\right\|\,dt \\ &= \int_a^b \sqrt{u'(t)^2\,\vec{r}_u\cdot\vec{r}_u + 2u'(t)v'(t)\, \vec{r}_u\cdot\vec{r}_v+ v'(t)^2\,\vec{r}_v\cdot\vec{r}_v}\,\,\, dt. \end{array}\\
 	\end{array}
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
-  
-  <test>
-    <id name="3"/>
-    <code>
-      <![CDATA[
+        </code>
+        <expected success="true"/>
+    </test>
+
+    <test>
+        <id name="3"/>
+        <code>
+            <![CDATA[
                \definecolor{gris}{gray}{0.9}
                \definecolor{noir}{rgb}{0,0,0}
                \definecolor{bleu}{rgb}{0,0,1}\newcommand{\pa}{\left|}
@@ -70,14 +70,14 @@
                \rotatebox{30}{\sum_{n=1}^{+\infty}}\quad\mbox{Mirror rorriM}\reflectbox{\mbox{Mirror rorriM}}
                \end{array}
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
+        </code>
+        <expected success="true"/>
+    </test>
 
-  <test>
-    <id name="4"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="4"/>
+        <code>
+            <![CDATA[
                \scalebox{2}{\begin{array}{|c|c|c|c|}
 	           \multicolumn{4}{c}{\shadowbox{\text{\Huge{}An image from the \LaTeX3 project}}}\cr
 	           \hline
@@ -87,14 +87,14 @@
 	           \hline
 	           \end{array}}
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
+        </code>
+        <expected success="true"/>
+    </test>
 
-  <test>
-    <id name="5"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="5"/>
+        <code>
+            <![CDATA[
                \begin{array}{|c|l|||r|c|}
 	           \hline
 	           \text{Matrix}&\multicolumn{2}{|c|}{\text{Multicolumns}}&\text{Font sizes commands}\cr
@@ -105,27 +105,27 @@
 	           \hline
 	           \end{array}
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
-  
-  <test>
-    <id name="6"/>
-    <code>
-      <![CDATA[
+        </code>
+        <expected success="true"/>
+    </test>
+
+    <test>
+        <id name="6"/>
+        <code>
+            <![CDATA[
                \begin{array}{cc}
 		       \fbox{\text{A framed box with \textdbend}}&\shadowbox{\text{A shadowed box}}\cr
 		       \doublebox{\text{A double framed box}}&\ovalbox{\text{An oval framed box}}\cr
 		       \end{array} 
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
+        </code>
+        <expected success="true"/>
+    </test>
 
-  <test>
-    <id name="7"/>
-    <code>
-      <![CDATA[
+    <test>
+        <id name="7"/>
+        <code>
+            <![CDATA[
                \begin{gather}
                i\hbar\frac{\partial \psi}{\partial t}
                = \frac{-\hbar^2}{2m} \left(
@@ -143,7 +143,7 @@
                \left| \psi(\mathbf{r},t) \right|^2\,dx\,dy\,dz\cr
                \end{gather}
       ]]>
-    </code>
-    <expected success="true"/>
-  </test>
+        </code>
+        <expected success="true"/>
+    </test>
 </tests>

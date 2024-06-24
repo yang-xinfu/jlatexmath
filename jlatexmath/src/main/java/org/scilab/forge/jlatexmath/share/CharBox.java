@@ -59,103 +59,103 @@ import org.scilab.forge.jlatexmath.share.platform.graphics.Graphics2DInterface;
  */
 public class CharBox extends Box {
 
-	private static final FontRenderContext FRC;
-	static {
-		FRC = new Graphics().createImage(1, 1).createGraphics2D()
-				.getFontRenderContext();
-	}
+    private static final FontRenderContext FRC;
 
-	protected CharFont cf;
-	protected double size;
+    static {
+        FRC = new Graphics().createImage(1, 1).createGraphics2D()
+                .getFontRenderContext();
+    }
 
-	private final char[] arr = new char[1];
+    protected CharFont cf;
+    protected double size;
 
-	protected CharBox() {
-	}
+    private final char[] arr = new char[1];
 
-	/**
-	 * Create a new CharBox that will represent the character defined by the
-	 * given Char-object.
-	 *
-	 * @param c
-	 *            a Char-object containing the character's font information.
-	 */
-	public CharBox(Char c) {
-		cf = c.getCharFont();
-		size = c.getMetrics().getSize();
-		width = c.getWidth();
-		height = c.getHeight();
-		depth = c.getDepth();
-	}
+    protected CharBox() {
+    }
 
-	@Override
-	public void addToWidth(final double x) {
-		width += x;
-	}
+    /**
+     * Create a new CharBox that will represent the character defined by the
+     * given Char-object.
+     *
+     * @param c a Char-object containing the character's font information.
+     */
+    public CharBox(Char c) {
+        cf = c.getCharFont();
+        size = c.getMetrics().getSize();
+        width = c.getWidth();
+        height = c.getHeight();
+        depth = c.getDepth();
+    }
 
-	@Override
-	public void draw(Graphics2DInterface g2, double x, double y) {
-		drawDebug(g2, x, y);
-		g2.saveTransformation();
-		g2.translate(x, y);
-		Font font = cf.fontInfo.getFont();
+    @Override
+    public void addToWidth(final double x) {
+        width += x;
+    }
 
-		// https://github.com/opencollab/jlatexmath/issues/32
-		int fontScale = font.getScale();
+    @Override
+    public void draw(Graphics2DInterface g2, double x, double y) {
+        drawDebug(g2, x, y);
+        g2.saveTransformation();
+        g2.translate(x, y);
+        Font font = cf.fontInfo.getFont();
 
-		if (fontScale != 1) {
+        // https://github.com/opencollab/jlatexmath/issues/32
+        int fontScale = font.getScale();
 
-			if (Math.abs(size - fontScale) > TeXFormula.PREC) {
-				g2.scale(size / fontScale, size / fontScale);
-			}
+        if (fontScale != 1) {
 
-		} else {
+            if (Math.abs(size - fontScale) > TeXFormula.PREC) {
+                g2.scale(size / fontScale, size / fontScale);
+            }
 
-			if (size != 1) {
-				g2.scale(size, size);
-			}
+        } else {
 
-		}
-		Font oldFont = g2.getFont();
-		if (!oldFont.isEqual(font)) {
-			g2.setFont(font);
-		}
+            if (size != 1) {
+                g2.scale(size, size);
+            }
 
-		arr[0] = cf.c;
+        }
+        Font oldFont = g2.getFont();
+        if (!oldFont.isEqual(font)) {
+            g2.setFont(font);
+        }
 
-		g2.drawChars(arr, 0, 1, 0, 0);
+        arr[0] = cf.c;
 
-		if (!oldFont.isEqual(font)) {
-			g2.setFont(oldFont);
-		}
-		g2.restoreTransformation();
-	}
+        g2.drawChars(arr, 0, 1, 0, 0);
 
-	@Override
-	public Area getArea() {
-		// final Font font = Configuration.get().getFont(cf.fontId);
-		FontInfo info = cf.fontInfo;
-		Font font = info.getFont();
+        if (!oldFont.isEqual(font)) {
+            g2.setFont(oldFont);
+        }
+        g2.restoreTransformation();
+    }
 
-		// can be null (if font not loaded - HTML5)
-		final Shape s = font.getGlyphOutline(FRC, cf);
+    @Override
+    public Area getArea() {
+        // final Font font = Configuration.get().getFont(cf.fontId);
+        FontInfo info = cf.fontInfo;
+        Font font = info.getFont();
 
-		final Area a = geom.createArea(s);
-		final double x = size / FactoryProvider.getInstance().getFontFactory()
-				.getFontScaleFactor();
-		if (x != 1) {
-			a.scale(x);
-		}
-		return a;
-	}
+        // can be null (if font not loaded - HTML5)
+        final Shape s = font.getGlyphOutline(FRC, cf);
 
-	@Override
-	public FontInfo getLastFont() {
-		return cf.fontInfo;
-	}
+        final Area a = geom.createArea(s);
+        final double x = size / FactoryProvider.getInstance().getFontFactory()
+                .getFontScaleFactor();
+        if (x != 1) {
+            a.scale(x);
+        }
+        return a;
+    }
 
-	@Override
-	public String toString() {
-		return super.toString() + "; char=" + cf.c;
-	}
+    @Override
+    public FontInfo getLastFont() {
+        return cf.fontInfo;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + "; char=" + cf.c;
+    }
 }

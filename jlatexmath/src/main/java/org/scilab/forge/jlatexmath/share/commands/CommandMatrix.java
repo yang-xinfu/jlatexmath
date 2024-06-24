@@ -45,68 +45,64 @@
 
 package org.scilab.forge.jlatexmath.share.commands;
 
-import org.scilab.forge.jlatexmath.share.ArrayOfAtoms;
-import org.scilab.forge.jlatexmath.share.Atom;
-import org.scilab.forge.jlatexmath.share.RowAtom;
-import org.scilab.forge.jlatexmath.share.SMatrixAtom;
-import org.scilab.forge.jlatexmath.share.TeXParser;
+import org.scilab.forge.jlatexmath.share.*;
 
 public class CommandMatrix extends Command {
 
-	protected ArrayOfAtoms aoa;
-	protected boolean hasLBrace = false;
+    protected ArrayOfAtoms aoa;
+    protected boolean hasLBrace = false;
 
-	@Override
-	public boolean init(TeXParser tp) {
-		aoa = new ArrayOfAtoms();
-		return true;
-	}
+    @Override
+    public boolean init(TeXParser tp) {
+        aoa = new ArrayOfAtoms();
+        return true;
+    }
 
-	@Override
-	public void add(TeXParser tp, Atom a) {
-		aoa.add(tp, a);
-		if (!hasLBrace) {
-			rbrace(tp);
-		}
-	}
+    @Override
+    public void add(TeXParser tp, Atom a) {
+        aoa.add(tp, a);
+        if (!hasLBrace) {
+            rbrace(tp);
+        }
+    }
 
-	@Override
-	public RowAtom steal(TeXParser tp) {
-		return aoa.steal(tp);
-	}
+    @Override
+    public RowAtom steal(TeXParser tp) {
+        return aoa.steal(tp);
+    }
 
-	@Override
-	public Atom getLastAtom() {
-		return aoa.getLastAtom();
-	}
+    @Override
+    public Atom getLastAtom() {
+        return aoa.getLastAtom();
+    }
 
-	@Override
-	public boolean isArray() {
-		return true;
-	}
+    @Override
+    public boolean isArray() {
+        return true;
+    }
 
-	@Override
-	public boolean isAmpersandAllowed() {
-		return true;
-	}
+    @Override
+    public boolean isAmpersandAllowed() {
+        return true;
+    }
 
-	@Override
-	public boolean isHandlingArg() {
-		return true;
-	}
+    @Override
+    public boolean isHandlingArg() {
+        return true;
+    }
 
-	@Override
-	public void lbrace(TeXParser tp) {
-		hasLBrace = true;
-	}
+    @Override
+    public void lbrace(TeXParser tp) {
+        hasLBrace = true;
+    }
 
-	@Override
-	public void rbrace(TeXParser tp) {
-		aoa.checkDimensions();
-		tp.closeConsumer(newI(tp));
-	}
+    @Override
+    public void rbrace(TeXParser tp) {
+        aoa.checkDimensions();
+        tp.closeConsumer(newI(tp));
+    }
 
-	public Atom newI(TeXParser tp) {
-		return new SMatrixAtom(aoa, false);
-	}
+    public Atom newI(TeXParser tp) {
+        return new SMatrixAtom(aoa, false);
+    }
 }

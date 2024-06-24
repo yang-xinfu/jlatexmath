@@ -1,33 +1,33 @@
 /**
  * This file is part of the JLaTeXMath library - https://github.com/opencollab/jlatexmath/
- *
+ * <p>
  * Copyright (C) 2019 JLaTeXMath developers and GeoGebra Gmbh
- *
+ * <p>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or (at
  * your option) any later version.
- *
+ * <p>
  * This program is distributed in the hope that it will be useful, but
  * WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * General Public License for more details.
- *
+ * <p>
  * A copy of the GNU General Public License can be found in the file
  * LICENSE.txt provided with the source distribution of this program (see
  * the META-INF directory in the source jar). This license can also be
  * found on the GNU website at http://www.gnu.org/licenses/gpl.html.
- *
+ * <p>
  * If you did not receive a copy of the GNU General Public License along
  * with this program, contact the lead developer, or write to the Free
  * Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA
  * 02110-1301, USA.
- *
+ * <p>
  * Linking this library statically or dynamically with other modules
  * is making a combined work based on this library. Thus, the terms
  * and conditions of the GNU General Public License cover the whole
  * combination.
- *
+ * <p>
  * As a special exception, the copyright holders of this library give you
  * permission to link this library with independent modules to produce
  * an executable, regardless of the license terms of these independent
@@ -39,7 +39,6 @@
  * to your version of the library, but you are not obliged to do so.
  * If you do not wish to do so, delete this exception statement from your
  * version.
- *
  */
 package org.scilab.forge.jlatexmath.desktop.font;
 
@@ -52,32 +51,32 @@ import org.scilab.forge.jlatexmath.share.platform.graphics.Graphics2DInterface;
 
 public class TextLayoutD implements TextLayout {
 
-	private java.awt.font.TextLayout layout;
+    private java.awt.font.TextLayout layout;
 
-	public TextLayoutD(String string, java.awt.Font font,
-			java.awt.font.FontRenderContext fontRenderContext) {
-		layout = new java.awt.font.TextLayout(string, font, fontRenderContext);
-	}
+    public TextLayoutD(String string, java.awt.Font font,
+                       java.awt.font.FontRenderContext fontRenderContext) {
+        layout = new java.awt.font.TextLayout(string, font, fontRenderContext);
+    }
 
-	@Override
-	public Rectangle2D getBounds() {
-		return new Rectangle2DD(layout.getBounds());
-	}
+    @Override
+    public Rectangle2D getBounds() {
+        return new Rectangle2DD(layout.getBounds());
+    }
 
-	@Override
-	public void draw(Graphics2DInterface graphics, int x, int y) {
-		// can be GraphicsStub
-		if (graphics instanceof Graphics2DD) {
-			Graphics2DD g2 = (Graphics2DD) graphics;
-			layout.draw(g2.getImpl(), x, y);
-		}
+    @Override
+    public void draw(Graphics2DInterface graphics, int x, int y) {
+        // can be GraphicsStub
+        if (graphics instanceof Graphics2DD) {
+            Graphics2DD g2 = (Graphics2DD) graphics;
+            layout.draw(g2.getImpl(), x, y);
+        }
 
-		if (graphics instanceof SVGGraphics2DD) {
-			SVGGraphics2DD SVGGraphics2DD = (SVGGraphics2DD) graphics;
-			layout.draw(SVGGraphics2DD.getImpl(),x,y);
-		}
+        if (graphics instanceof SVGGraphics2DD) {
+            SVGGraphics2DD SVGGraphics2DD = (SVGGraphics2DD) graphics;
+            layout.draw(SVGGraphics2DD.getImpl(), x, y);
+        }
 
 
-	}
+    }
 
 }

@@ -50,19 +50,19 @@ package org.scilab.forge.jlatexmath.share;
  */
 public class tcaronAtom extends Atom {
 
-	private static final SymbolAtom APOS = SymbolAtom.get("textapos");
+    private static final SymbolAtom APOS = SymbolAtom.get("textapos");
 
-	public tcaronAtom() {
-	}
+    public tcaronAtom() {
+    }
 
-	@Override
-	public Box createBox(TeXEnvironment env) {
-		CharBox A = new CharBox(
-				env.getTeXFont().getChar(APOS.getCf(), env.getStyle()));
-		CharBox t = new CharBox(env.getTeXFont().getChar('t', env.getStyle()));
-		HorizontalBox hb = new HorizontalBox(t);
-		hb.add(new SpaceAtom(Unit.EM, -0.3, 0, 0).createBox(env));
-		hb.add(A);
-		return hb;
-	}
+    @Override
+    public Box createBox(TeXEnvironment env) {
+        CharBox A = new CharBox(
+                env.getTeXFont().getChar(APOS.getCf(), env.getStyle()));
+        CharBox t = new CharBox(env.getTeXFont().getChar('t', env.getStyle()));
+        HorizontalBox hb = new HorizontalBox(t);
+        hb.add(new SpaceAtom(Unit.EM, -0.3, 0, 0).createBox(env));
+        hb.add(A);
+        return hb;
+    }
 }

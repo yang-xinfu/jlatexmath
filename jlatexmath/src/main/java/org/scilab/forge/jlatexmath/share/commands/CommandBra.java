@@ -45,51 +45,44 @@
 
 package org.scilab.forge.jlatexmath.share.commands;
 
-import java.util.ArrayList;
+import org.scilab.forge.jlatexmath.share.*;
 
-import org.scilab.forge.jlatexmath.share.Atom;
-import org.scilab.forge.jlatexmath.share.FencedAtom;
-import org.scilab.forge.jlatexmath.share.MiddleAtom;
-import org.scilab.forge.jlatexmath.share.RowAtom;
-import org.scilab.forge.jlatexmath.share.Substitution;
-import org.scilab.forge.jlatexmath.share.SymbolAtom;
-import org.scilab.forge.jlatexmath.share.Symbols;
-import org.scilab.forge.jlatexmath.share.TeXParser;
+import java.util.ArrayList;
 
 public class CommandBra extends Command1A {
 
-	final SymbolAtom left;
-	final SymbolAtom right;
+    final SymbolAtom left;
+    final SymbolAtom right;
 
-	public CommandBra(final SymbolAtom left, final SymbolAtom right) {
-		this.left = left;
-		this.right = right;
-	}
+    public CommandBra(final SymbolAtom left, final SymbolAtom right) {
+        this.left = left;
+        this.right = right;
+    }
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		final ArrayList<MiddleAtom> middles = new ArrayList<MiddleAtom>();
-		if (a instanceof RowAtom) {
-			final RowAtom ra = (RowAtom) a;
-			ra.substitute(new Substitution() {
-				@Override
-				public Atom get(Atom a) {
-					if (a == Symbols.VERT) {
-						final MiddleAtom ma = new MiddleAtom(a);
-						middles.add(ma);
-						return ma;
-					} else if (a == Symbols.DOUBLE_VERT) {
-						final MiddleAtom ma = new MiddleAtom(a);
-						middles.add(ma);
-						return ma;
-					}
-					return a;
-				}
-			});
-		} else if (a instanceof MiddleAtom) {
-			middles.add((MiddleAtom) a);
-		}
-		return new FencedAtom(a, left, middles, right);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        final ArrayList<MiddleAtom> middles = new ArrayList<MiddleAtom>();
+        if (a instanceof RowAtom) {
+            final RowAtom ra = (RowAtom) a;
+            ra.substitute(new Substitution() {
+                @Override
+                public Atom get(Atom a) {
+                    if (a == Symbols.VERT) {
+                        final MiddleAtom ma = new MiddleAtom(a);
+                        middles.add(ma);
+                        return ma;
+                    } else if (a == Symbols.DOUBLE_VERT) {
+                        final MiddleAtom ma = new MiddleAtom(a);
+                        middles.add(ma);
+                        return ma;
+                    }
+                    return a;
+                }
+            });
+        } else if (a instanceof MiddleAtom) {
+            middles.add((MiddleAtom) a);
+        }
+        return new FencedAtom(a, left, middles, right);
+    }
 
 }

@@ -9,14 +9,14 @@ import org.scilab.forge.jlatexmath.share.platform.font.FontRenderContext;
 import org.scilab.forge.jlatexmath.share.platform.geom.Line2D;
 import org.scilab.forge.jlatexmath.share.platform.geom.Rectangle2D;
 import org.scilab.forge.jlatexmath.share.platform.geom.RoundRectangle2D;
-import org.scilab.forge.jlatexmath.share.platform.graphics.*;
 import org.scilab.forge.jlatexmath.share.platform.graphics.Color;
 import org.scilab.forge.jlatexmath.share.platform.graphics.Image;
 import org.scilab.forge.jlatexmath.share.platform.graphics.Stroke;
+import org.scilab.forge.jlatexmath.share.platform.graphics.*;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.RenderingHints;
+import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.GeneralPath;
 import java.awt.image.BufferedImage;
@@ -25,7 +25,6 @@ import java.io.IOException;
 import java.util.LinkedList;
 
 /**
- *
  * @Desc
  * @Author yxf
  * @Date 2024/6/23 15:12

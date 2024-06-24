@@ -6,9 +6,9 @@ import org.scilab.forge.jlatexmath.share.XArrowAtom;
 
 public class CommandXLeftHarpoonDown extends Command1O1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a, Atom b) {
-		return new XArrowAtom(b, a, XArrowAtom.Kind.LeftHarpoonDown);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a, Atom b) {
+        return new XArrowAtom(b, a, XArrowAtom.Kind.LeftHarpoonDown);
+    }
 
 }

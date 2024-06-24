@@ -6,8 +6,8 @@ import org.scilab.forge.jlatexmath.share.TeXParser;
 
 public class CommandPod extends Command1A {
 
-	@Override
-	public Atom newI(TeXParser tp, Atom a) {
-		return new PodAtom(a, 8., true);
-	}
+    @Override
+    public Atom newI(TeXParser tp, Atom a) {
+        return new PodAtom(a, 8., true);
+    }
 }
