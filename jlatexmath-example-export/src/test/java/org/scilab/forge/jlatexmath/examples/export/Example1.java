@@ -52,33 +52,12 @@ import java.io.IOException;
 public class Example1 {
     public static void main(String[] args) {
 
-//        String latex = "\\begin{array}{lr}\\mbox{\\textcolor{blue}{Russian}}&\\mbox{\\textcolor{Melon}{Greek}}\\\\";
-//        latex += "\\mbox{" + "привет мир".toUpperCase() + "}&\\mbox{" + "γειά κόσμο".toUpperCase() + "}\\\\";
-//        latex += "\\mbox{привет мир}&\\mbox{γειά κόσμο}\\\\";
-//        latex += "\\mathbf{\\mbox{привет мир}}&\\mathbf{\\mbox{γειά κόσμο}}\\\\";
-//        latex += "\\mathit{\\mbox{привет мир}}&\\mathit{\\mbox{γειά κόσμο}}\\\\";
-//        latex += "\\mathsf{\\mbox{привет мир}}&\\mathsf{\\mbox{γειά κόσμο}}\\\\";
-//        latex += "\\mathtt{\\mbox{привет мир}}&\\mathtt{\\mbox{γειά κόσμο}}\\\\";
-//        latex += "\\mathbf{\\mathit{\\mbox{привет мир}}}&\\mathbf{\\mathit{\\mbox{γειά κόσμο}}}\\\\";
-//        latex += "\\mathbf{\\mathsf{\\mbox{привет мир}}}&\\mathbf{\\mathsf{\\mbox{γειά κόσμο}}}\\\\";
-//        latex += "\\mathsf{\\mathit{\\mbox{привет мир}}}&\\mathsf{\\mathit{\\mbox{γειά κόσμο}}}\\\\";
-//        latex += "&\\\\";
-//        latex += "\\mbox{\\textcolor{Salmon}{Bulgarian}}&\\mbox{\\textcolor{Tan}{Serbian}}\\\\";
-//        latex += "\\mbox{здравей свят}&\\mbox{Хелло уорлд}\\\\";
-//        latex += "&\\\\";
-//        latex += "\\mbox{\\textcolor{Turquoise}{Bielorussian}}&\\mbox{\\textcolor{LimeGreen}{Ukrainian}}\\\\";
-//        latex += "\\mbox{прывітаньне Свет}&\\mbox{привіт світ}\\\\";
-//        latex += "\\end{array}";
-
         String latex = "\\ce{A ->[上a][下b] B}";
+        latex += "\\left[\\frac{1}{2\\mathrm{e}},\\mathrm{e}^2\\right]";
 
         try {
             Convert.toSVG(latex, "Example1.svg", false);
             Convert.toSVG(latex, "Example1_shaped.svg", true);
-//            Convert.SVGTo("Example1.svg", "Example1.pdf", Convert.PDF);
-//            Convert.SVGTo("Example1_shaped.svg", "Example1_shaped.pdf", Convert.PDF);
-//            Convert.SVGTo("Example1.svg", "Example1.ps", Convert.PS);
-//            Convert.SVGTo("Example1.svg", "Example1.eps", Convert.EPS);
         } catch (IOException ex) {
             throw new RuntimeException(ex);
         }

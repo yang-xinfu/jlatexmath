@@ -13,11 +13,6 @@
     <description>Examples of exporting latex formulas as PNG, PDF, SVG, EPS</description>
 
     <dependencies>
-<!--           fop.jar
-   avalon-framework.jar
-   xml-apis-ext.jar
-   commons-io.jar
-   commons-logging.jar-->
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>

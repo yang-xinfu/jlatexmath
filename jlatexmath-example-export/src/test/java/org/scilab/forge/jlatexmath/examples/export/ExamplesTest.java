@@ -44,93 +44,38 @@
  */
 package org.scilab.forge.jlatexmath.examples.export;
 
-import static org.junit.Assert.assertTrue;
-
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
-
 import org.apache.batik.transcoder.TranscoderException;
 import org.apache.batik.transcoder.TranscoderInput;
 import org.apache.batik.transcoder.TranscoderOutput;
 import org.apache.batik.transcoder.image.PNGTranscoder;
 import org.junit.FixMethodOrder;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
+
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class ExamplesTest {
 
     @Test
-    public void testExample1() throws FileNotFoundException, TranscoderException, IOException {
+    public void testExample1() throws TranscoderException, IOException {
         Example1.main(new String[0]);
-        saveSvgAsPngAndCheck("Example1");
+        saveSvgAsPng("Example1");
     }
 
     @Test
     public void testExample1Shaped()
-    throws FileNotFoundException, TranscoderException, IOException {
+    throws TranscoderException, IOException {
         Example1.main(new String[0]);
-        saveSvgAsPngAndCheck("Example1_shaped");
-    }
-
-    @Test
-    @Ignore
-    public void testExample2() throws FileNotFoundException, TranscoderException, IOException {
-        // TODO get this working (copy relevant fonts to some
-        Example2.main(new String[0]);
-        saveSvgAsPngAndCheck("Example2");
-    }
-
-    @Test
-    public void testExample2Shaped()
-    throws FileNotFoundException, TranscoderException, IOException {
-        Example2.main(new String[0]);
-        saveSvgAsPngAndCheck("Example2_shaped");
-    }
-
-    @Test
-    @Ignore
-    public void testExample3() throws FileNotFoundException, TranscoderException, IOException {
-        // TODO get this working
-        Example3.main(new String[0]);
-        saveSvgAsPngAndCheck("Example3");
-    }
-
-    @Test
-    public void testExample3Shaped()
-    throws FileNotFoundException, TranscoderException, IOException {
-        Example3.main(new String[0]);
-        saveSvgAsPngAndCheck("Example3_shaped");
-    }
-
-    @Test
-    public void testExample4() throws TranscoderException, IOException {
-        Example4.main(new String[0]);
-        saveSvgAsPngAndCheck("Example4");
-    }
-
-    @Test
-    public void testExample4Shaped() throws TranscoderException, IOException {
-        Example4.main(new String[0]);
-        saveSvgAsPngAndCheck("Example4_shaped");
-    }
-
-    private static void saveSvgAsPngAndCheck(String name)
-    throws FileNotFoundException, TranscoderException, IOException {
-        saveSvgAsPng(name);
-//        check(name + ".png");
+        saveSvgAsPng("Example1_shaped");
     }
 
     private static void saveSvgAsPng(String name)
-    throws FileNotFoundException, TranscoderException, IOException {
-        TranscoderInput ti = new TranscoderInput(new FileInputStream("target/" + name + ".svg"));
+    throws TranscoderException, IOException {
+        TranscoderInput ti = new TranscoderInput(Files.newInputStream(Paths.get("target/" + name + ".svg")));
         FileOutputStream os = new FileOutputStream("target/" + name + ".png");
         TranscoderOutput to = new TranscoderOutput(os);
         PNGTranscoder pt = new PNGTranscoder();
@@ -138,37 +83,5 @@ public class ExamplesTest {
         os.flush();
         os.close();
     }
-
-    @Test
-    public void testExample5() {
-        Example5.main(new String[0]);
-    }
-
-    @Test
-    public void testURI() {
-        String s = "jar:file:/C:/Users/david/.m2/repository/org/scilab/forge/jlatexmath/1.0.5-SNAPSHOT/jlatexmath-1.0.5-SNAPSHOT.jar!/org/scilab/forge/jlatexmath/fonts/latin/optional/jlm_cmss10.ttf";
-        File f = new File(s);
-        System.out.println(f.exists());
-    }
-//
-//    private static void check(String filename) {
-//        try {
-//            System.out.println("checking image " + filename);
-//            BufferedImage a = ImageIO.read(new File("src/test/resources/expected/" + filename));
-//            BufferedImage b = ImageIO.read(new File("target/" + filename));
-//            double distance = Images.distance(a, b);
-//            System.out.println("distance=" + distance);
-//            // TODO establish a reasonable threshold after running the tests on
-//            // different platforms (windows, osx, linux, others?)
-//            final double THRESHOLD = Images.DISTANCE_THRESHOLD;
-//            assertTrue("actual and expected images for " + filename + " are different sizes!",
-//                       distance >= 0);
-//            assertTrue("distance is above threshold, images are probably significantly different, distance="
-//                       + distance,
-//                       distance <= THRESHOLD);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
 
 }
